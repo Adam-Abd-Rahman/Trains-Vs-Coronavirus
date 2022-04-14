@@ -46,6 +46,7 @@ public class PantographControl : MonoBehaviour
             CircuitBreaker.SetActive(true);
             //CircuitBreakervisible.SetActive(false);
             Debug.Log("Pantograph has raised." + value);
+            TGVsounds.tgvnoises.PlayTGVAudioIdling();
         }
 
         //PantographvideoClipIndex++;

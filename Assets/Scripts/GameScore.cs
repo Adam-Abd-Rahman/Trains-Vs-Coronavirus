@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class GameScore : MonoBehaviour
 {
-    public GameObject TGV;
+    Distancechecker distancescore; 
+    public GameObject TGVtrain;
     public Text ScoreText;
-    private int Score;
+    private float Score;
     //private float pointsDecreasedPerSecond;
     public Text GameOver;
 
@@ -16,7 +17,7 @@ public class GameScore : MonoBehaviour
     {
         //Score = 5f;
         //pointsDecreasedPerSecond = 1.0f;
-        //Distancechecker distancescore = TGV.GetComponent<Distancechecker>();
+        distancescore = TGVtrain.GetComponent<Distancechecker>();
         GameOver.text = "";
         Score = 5;
         SetScoreText();
@@ -31,19 +32,17 @@ public class GameScore : MonoBehaviour
 
     void SetScoreText()
     {
-        ScoreText.text = "Game Score: " + Score.ToString();
-        if (Score == 0)
-        {
-           GameOver.text = "Game Over!!";
-           Score = 0;
-        }
-
-        //Debug.Log(distancescore.distance);
-        //if (distance == 0)
+        ScoreText.text = "Game Score: " + Score;
+        //if (Score == 0)
         //{
-        //Score = Score + 499;
+           //GameOver.text = "Game Over!!";
+           //Score = 0;
         //}
 
+        if (distancescore.distance == 1f)
+        {
+            //Score = Score + 499;
+            Debug.Log("Score");
+        }
     }
-
 }

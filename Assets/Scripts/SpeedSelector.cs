@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class SpeedSelector : MonoBehaviour
 {
     public Slider SelectedSpeed;
-    public Slider Power;
     public Text SpeedSelectorvalue;
 
     // Start is called before the first frame update
@@ -17,6 +16,12 @@ public class SpeedSelector : MonoBehaviour
         });
 
         // Changes the max value of the slider to 300;
-        SelectedSpeed.maxValue = 300;
+        //SelectedSpeed.maxValue = 300;
     }
+
+    public void OnValueChanged(float value)
+    {
+        Debug.Log("New Value" + value);
+    }
+
 }

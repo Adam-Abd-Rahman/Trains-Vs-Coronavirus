@@ -27,6 +27,12 @@ public class TGVsounds : MonoBehaviour
         TGVaudio.Play();
     }
 
+    public void StopTGVAudioMoving()
+    {
+        TGVaudio.clip = TGVmoving;
+        TGVaudio.Stop();
+    }
+
     public void PlayTGVAudioIdling()
     {
         TGVaudio.clip = TGVidling;

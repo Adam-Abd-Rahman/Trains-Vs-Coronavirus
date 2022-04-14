@@ -3061,9 +3061,10 @@ GameObject:
   - component: {fileID: 682643045}
   - component: {fileID: 682643044}
   - component: {fileID: 682643042}
+  - component: {fileID: 682643047}
   m_Layer: 0
   m_Name: TGV
-  m_TagString: traindestination
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3333,6 +3334,22 @@ MonoBehaviour:
   m_PositionUnits: 1
   m_Speed: 0
   m_Position: 0
+--- !u!54 &682643047
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682643035}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &706031886
 GameObject:
   m_ObjectHideFlags: 0
@@ -5255,7 +5272,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -86, y: 135}
+  m_AnchoredPosition: {x: -86.00003, y: 135}
   m_SizeDelta: {x: -806.835, y: -397.60498}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1076420622
@@ -5981,7 +5998,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 300
-  m_WholeNumbers: 1
+  m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6012,11 +6029,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Powerslider: {fileID: 1210346226}
   Powervalue: {fileID: 2062528936}
+  selectyourspeed: {fileID: 1951783903}
+  TGVtrain: {fileID: 682643035}
   Brake: {fileID: 1613817803}
   BrakeHold: {fileID: 178780002}
   BrakeNeutral: {fileID: 720584228}
   EmergencyBrake: {fileID: 542382107}
   Doorbutton: {fileID: 1180367857}
+  maxspeed: 10
+  timeZeroToMax: 0.5
+  rb: {fileID: 682643047}
 --- !u!1 &1219345054
 GameObject:
   m_ObjectHideFlags: 0
@@ -9241,7 +9263,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectedSpeed: {fileID: 1951783904}
-  Power: {fileID: 0}
   SpeedSelectorvalue: {fileID: 419975021}
 --- !u!114 &1951783904
 MonoBehaviour:
@@ -9294,9 +9315,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1951783901}
-        m_TargetAssemblyTypeName: PantographControl, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1951783903}
+        m_TargetAssemblyTypeName: SpeedSelector, Assembly-CSharp
+        m_MethodName: OnValueChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9691,7 +9712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69bfa160f82a8514991ee0f9133ba761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TGV: {fileID: 0}
+  TGVtrain: {fileID: 682643035}
   ScoreText: {fileID: 207770965}
   GameOver: {fileID: 1662187634}
 --- !u!1 &2053064853
