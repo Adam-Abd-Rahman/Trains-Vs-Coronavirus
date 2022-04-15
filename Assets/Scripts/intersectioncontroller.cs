@@ -11,6 +11,8 @@ namespace Cinemachine
         public GameObject TGVtrain;
         public CinemachineDollyCart path;
         public CinemachineDollyCart1 path1;
+        public Distancechecker distancescore;
+        public Distancechecker1 distancescore1;
         public Slider intersectionslider;
 
         // Start is called before the first frame update
@@ -18,6 +20,8 @@ namespace Cinemachine
         {
             path = TGVtrain.GetComponent<CinemachineDollyCart>();
             path1 = TGVtrain.GetComponent<CinemachineDollyCart1>();
+            distancescore = TGVtrain.GetComponent<Distancechecker>();
+            distancescore1 = TGVtrain.GetComponent<Distancechecker1>();
             ChangeDestination(0);
             intersectionslider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
         }
@@ -29,11 +33,15 @@ namespace Cinemachine
             {
                 path.enabled = true;
                 path1.enabled = false;
+                distancescore.enabled = true;
+                distancescore1.enabled = false;
             }
             else
             {
                 path.enabled = false;
                 path1.enabled = true;
+                distancescore.enabled = false;
+                distancescore1.enabled = true;
             }
         }
 

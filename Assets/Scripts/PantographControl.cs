@@ -10,6 +10,8 @@ public class PantographControl : MonoBehaviour
     public Text PantographControlText;
     public GameObject CircuitBreaker;
     //public GameObject CircuitBreakervisible;
+    public GameObject Horn;
+    //public GameObject Hornrvisible;
     public GameObject Pantographpanel;
     public VideoClip[] Pantographvideos;
     public VideoPlayer PantographVideoplayer;
@@ -38,6 +40,8 @@ public class PantographControl : MonoBehaviour
             PantographControlText.text = "Lowered";
             CircuitBreaker.SetActive(false);
             //CircuitBreakervisible.SetActive(true);
+            Horn.SetActive(false);
+            //Hornrvisible.SetActive(true);
             Debug.Log("Pantograph is lowered." + value);
         }
         else
@@ -45,10 +49,12 @@ public class PantographControl : MonoBehaviour
             PantographControlText.text = "Raised";
             CircuitBreaker.SetActive(true);
             //CircuitBreakervisible.SetActive(false);
+            Horn.SetActive(true);
+            //Hornrvisible.SetActive(false);
             Debug.Log("Pantograph has raised." + value);
             TGVsounds.tgvnoises.PlayTGVAudioIdling();
         }
-
+    
         //PantographvideoClipIndex++;
         //if (PantographvideoClipIndex % 2 == 1)
         //{

@@ -9,6 +9,7 @@ public class TGVsounds : MonoBehaviour
     public AudioClip TGVaccelerating;
     public AudioClip TGVbraking;
     public AudioClip Rev;
+    public AudioClip doorsound;
 
     AudioSource TGVaudio;
 
@@ -39,6 +40,12 @@ public class TGVsounds : MonoBehaviour
         TGVaudio.Play();
     }
 
+    public void StopTGVAudioIdling()
+    {
+        TGVaudio.clip = TGVidling;
+        TGVaudio.Stop();
+    }
+
     public void PlayTGVAudioAccelerate()
     {
         TGVaudio.clip = TGVaccelerating;
@@ -60,6 +67,12 @@ public class TGVsounds : MonoBehaviour
     public void PlayRev()
     {
         TGVaudio.clip = Rev;
+        TGVaudio.Play();
+    }
+
+    public void PlayDoorSound()
+    {
+        TGVaudio.clip = doorsound;
         TGVaudio.Play();
     }
 }

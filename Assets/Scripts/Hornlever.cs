@@ -16,6 +16,13 @@ public class Hornlever : MonoBehaviour
             if (!trainHornTriggered)
             {
                 Horn.tgvtrainhorn.PlayTGVAudioHorn();
+                //TGVsounds.tgvnoises.StopTGVAudioIdling();
+                trainHornTriggered = true;
+            }
+
+            if (!trainHornTriggered)
+            {
+                TGVsounds.tgvnoises.StopTGVAudioIdling();
                 trainHornTriggered = true;
             }
         }
@@ -24,6 +31,12 @@ public class Hornlever : MonoBehaviour
             if (trainHornTriggered)
             {
                 Horn.tgvtrainhorn.StopTGVAudioHorn();
+                trainHornTriggered = false;
+            }
+
+            if (!trainHornTriggered)
+            {
+                TGVsounds.tgvnoises.PlayTGVAudioIdling();
                 trainHornTriggered = false;
             }
         }

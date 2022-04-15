@@ -10,7 +10,7 @@ public class Doorbutton : MonoBehaviour
     private VideoPlayer DoorVideoplayer;
     public Text DoorText;
     private int doorvideoClipIndex;
-    private int doorcounter;
+    private int doorcounter; 
 
     //Awake is called before Start
     private void Awake()
@@ -41,5 +41,6 @@ public class Doorbutton : MonoBehaviour
         }
 
         DoorVideoplayer.Play();
+        TGVsounds.tgvnoises.PlayDoorSound();
     }
 }

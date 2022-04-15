@@ -976,6 +976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Power: {fileID: 1210346224}
   Powervisible: {fileID: 522383277}
+  GameScore: {fileID: 207770964}
   BrakeHoldtext: {fileID: 2141069537}
 --- !u!114 &178780005
 MonoBehaviour:
@@ -1157,6 +1158,7 @@ GameObject:
   - component: {fileID: 207770967}
   - component: {fileID: 207770966}
   - component: {fileID: 207770965}
+  - component: {fileID: 207770968}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -1225,6 +1227,24 @@ RectTransform:
   m_AnchoredPosition: {x: 181.7, y: -38.7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &207770968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207770964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69bfa160f82a8514991ee0f9133ba761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distancescore: {fileID: 0}
+  distancescore1: {fileID: 0}
+  TGVtrain: {fileID: 682643035}
+  ScoreText: {fileID: 207770965}
+  Score: 5
+  GameOver: {fileID: 1662187634}
 --- !u!1 &218255887
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,7 +2471,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 499800798}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 300
+  m_MaxValue: 100
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
@@ -2819,8 +2839,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Drivingmode: {fileID: 561469879}
+  Powerslider: {fileID: 1210346226}
   DrivingmodeText: {fileID: 1576096571}
-  ManualControl: {fileID: 1210346224}
   SpeedselectorControl: {fileID: 1951783901}
 --- !u!114 &561469879
 MonoBehaviour:
@@ -2903,7 +2923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &612450004
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3056,6 +3076,7 @@ GameObject:
   - component: {fileID: 682643037}
   - component: {fileID: 682643036}
   - component: {fileID: 682643046}
+  - component: {fileID: 682643048}
   - component: {fileID: 682643041}
   - component: {fileID: 682643043}
   - component: {fileID: 682643045}
@@ -3171,12 +3192,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682643035}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad7c33282c29b0a4aaf3d8ae9afc39a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 048365d1d9c502545a927d683f2335b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpoint: {fileID: 1988178051}
+  checkpoint: {fileID: 1058824487}
   distanceText: {fileID: 1219345056}
   distance: 0
 --- !u!82 &682643042
@@ -3292,6 +3313,7 @@ MonoBehaviour:
   TGVaccelerating: {fileID: 8300000, guid: 1568ea2b39f07534b9e4e709ba91c33b, type: 3}
   TGVbraking: {fileID: 8300000, guid: b232c78da8c31a543bab1b1d13456a60, type: 3}
   Rev: {fileID: 8300000, guid: b8f646151ce53a54288461e93f561747, type: 3}
+  doorsound: {fileID: 8300000, guid: b285d61fa7fe0764da5f296f1cc2e8b4, type: 3}
 --- !u!114 &682643044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3350,6 +3372,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &682643048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682643035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7c33282c29b0a4aaf3d8ae9afc39a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpoint: {fileID: 1988178051}
+  distanceText: {fileID: 1219345056}
+  distance: 0
 --- !u!1 &706031886
 GameObject:
   m_ObjectHideFlags: 0
@@ -3634,7 +3671,7 @@ GameObject:
   - component: {fileID: 739762669}
   - component: {fileID: 739762668}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: RevTrigger
   m_TagString: Revsound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4904,6 +4941,7 @@ MonoBehaviour:
   Pantographcontrol: {fileID: 990794192}
   PantographControlText: {fileID: 42183239}
   CircuitBreaker: {fileID: 944103239}
+  Horn: {fileID: 2054626323}
   Pantographpanel: {fileID: 612450003}
   Pantographvideos:
   - {fileID: 32900000, guid: a35f0cb59c6111b42b93d12d101e3bff, type: 3}
@@ -4943,7 +4981,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4985,6 +5023,102 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012656165}
   m_CullTransparentMesh: 1
+--- !u!1 &1058824483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1058824487}
+  - component: {fileID: 1058824486}
+  - component: {fileID: 1058824485}
+  - component: {fileID: 1058824484}
+  m_Layer: 0
+  m_Name: Cube (3)
+  m_TagString: traindestination
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1058824484
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058824483}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1058824485
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058824483}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1058824486
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058824483}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1058824487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058824483}
+  m_LocalRotation: {x: 0, y: 0.009449941, z: 0, w: 0.99995536}
+  m_LocalPosition: {x: 14.57, y: 0.53999996, z: -27.42}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1061106974
 GameObject:
   m_ObjectHideFlags: 0
@@ -5193,7 +5327,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5333,7 +5467,7 @@ VideoPlayer:
   m_AspectRatio: 2
   m_DataSource: 0
   m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
+  m_AudioOutputMode: 0
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
@@ -5997,7 +6131,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 101599430}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 300
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -6031,14 +6165,13 @@ MonoBehaviour:
   Powervalue: {fileID: 2062528936}
   selectyourspeed: {fileID: 1951783903}
   TGVtrain: {fileID: 682643035}
+  cinemachinedollycart1: {fileID: 0}
   Brake: {fileID: 1613817803}
   BrakeHold: {fileID: 178780002}
   BrakeNeutral: {fileID: 720584228}
   EmergencyBrake: {fileID: 542382107}
   Doorbutton: {fileID: 1180367857}
-  maxspeed: 10
-  timeZeroToMax: 0.5
-  rb: {fileID: 682643047}
+  SliderValue: 0
 --- !u!1 &1219345054
 GameObject:
   m_ObjectHideFlags: 0
@@ -6903,6 +7036,8 @@ MonoBehaviour:
   TGVtrain: {fileID: 682643035}
   path: {fileID: 682643036}
   path1: {fileID: 682643046}
+  distancescore: {fileID: 0}
+  distancescore1: {fileID: 0}
   intersectionslider: {fileID: 1315115329}
 --- !u!114 &1315115329
 MonoBehaviour:
@@ -7889,6 +8024,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brake: {fileID: 1613817805}
   brakevalue: {fileID: 1367295907}
+  TGVtrain: {fileID: 682643035}
+  cinemachinedollycart1: {fileID: 0}
 --- !u!1 &1626708488
 GameObject:
   m_ObjectHideFlags: 0
@@ -9263,6 +9400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectedSpeed: {fileID: 1951783904}
+  Powerslider: {fileID: 1210346226}
   SpeedSelectorvalue: {fileID: 419975021}
 --- !u!114 &1951783904
 MonoBehaviour:
@@ -9589,7 +9727,6 @@ GameObject:
   - component: {fileID: 2044094796}
   - component: {fileID: 2044094795}
   - component: {fileID: 2044094794}
-  - component: {fileID: 2044094798}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -9700,21 +9837,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2044094798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2044094793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69bfa160f82a8514991ee0f9133ba761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TGVtrain: {fileID: 682643035}
-  ScoreText: {fileID: 207770965}
-  GameOver: {fileID: 1662187634}
 --- !u!1 &2053064853
 GameObject:
   m_ObjectHideFlags: 0
@@ -9811,7 +9933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2054626324
 RectTransform:
   m_ObjectHideFlags: 0

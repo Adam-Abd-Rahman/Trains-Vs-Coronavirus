@@ -13,4 +13,12 @@ public class REVsoundtrigger : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (other.tag == "Revsound")
+        {
+            TGVsounds.tgvnoises.PlayTGVAudioMoving();
+        }
+    }
 }

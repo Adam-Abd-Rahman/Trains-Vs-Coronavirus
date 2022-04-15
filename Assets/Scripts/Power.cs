@@ -12,18 +12,15 @@ namespace Cinemachine
         public Text Powervalue;
         public SpeedSelector selectyourspeed;
         public GameObject TGVtrain;
-        //public CinemachineDollyCart1 TrainSpeed1;        
+        private CinemachineDollyCart cinemachinedollycart;
+        public CinemachineDollyCart1 cinemachinedollycart1;        
         public GameObject Brake;
         public GameObject BrakeHold;
         public GameObject BrakeNeutral;
         public GameObject EmergencyBrake;
         public GameObject Doorbutton;
         //public GameObject Doorbuttonvisible;
-        public float maxspeed = 10.0f;
-        public float timeZeroToMax = 0.5f;
-        float accelRatePerSecond;
-        float forwardVelocity;
-        public Rigidbody rb;
+        public float SliderValue;
 
         bool trainAudioTriggered;
         
@@ -35,52 +32,17 @@ namespace Cinemachine
                 Powervalue.text = v.ToString("0");
             });
 
-            //Powerslider.maxValue = 300;
-    
-            rb = TGVtrain.GetComponent<Rigidbody>();
-            accelRatePerSecond = maxspeed / timeZeroToMax;
-            forwardVelocity = 0f;
+            //Powerslider.maxValue = 10;
 
-            CinemachineDollyCart TrainSpeed = TGVtrain.GetComponent<CinemachineDollyCart>();
-            //TrainSpeed1 = TGVtrain.GetComponent<CinemachineDollyCart1>();
-            Debug.Log(TrainSpeed.m_Speed);
+            TGVtrain = GameObject.Find("TGV");
+            cinemachinedollycart = TGVtrain.GetComponent<CinemachineDollyCart>();
+            cinemachinedollycart1 = TGVtrain.GetComponent<CinemachineDollyCart1>();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            //if (Input.GetKeyDown(KeyCode.Space)) {
-            //rb.velocity *= 0.9f;  // it will slow down until it stops completly, if you multiply it by lets say 1.1f then it will accelerate
-            //}
-        }
-    
         public void OnValueChanged(float value)
         {
-            if (value >= 1f)
-            {
-                Brake.SetActive(true);
-                BrakeHold.SetActive(true);
-                BrakeNeutral.SetActive(true);
-                EmergencyBrake.SetActive(true);
-                Doorbutton.SetActive(false);
-                //Doorbuttonvisible.SetActive(true);
-                forwardVelocity += accelRatePerSecond * Time.deltaTime;
-                forwardVelocity = Mathf.Min(forwardVelocity, maxspeed);
-            }
-            else
-            {
-                Brake.SetActive(true);
-                BrakeHold.SetActive(true);
-                BrakeNeutral.SetActive(true);
-                EmergencyBrake.SetActive(true);
-                Doorbutton.SetActive(true);
-                //Doorbuttonvisible.SetActive(false);
-                LateUpdate();
-            }
-    
-            //TrainSpeed = Powerslider.value;
-            //Debug.Log("Current Train Speed:" + TrainSpeed);
-
+            SliderValue = value;
+            
             if (Powerslider.value == 0f)
             {
                 if (!trainAudioTriggered)
@@ -88,28 +50,59 @@ namespace Cinemachine
                     TGVsounds.tgvnoises.PlayTGVAudioIdling();
                     trainAudioTriggered = true;
                 }
+
+                Brake.SetActive(true);
+                BrakeHold.SetActive(true);
+                BrakeNeutral.SetActive(true);
+                EmergencyBrake.SetActive(true);
             }
-            else if (Powerslider.value >= 1f && Powerslider.value < 50f)
-            {
-                if (trainAudioTriggered)
-                {
-                    TGVsounds.tgvnoises.PlayTGVAudioAccelerate();
-                    trainAudioTriggered = false;
-                }
-            }
-            else
+            else if (Powerslider.value >= 1f && Powerslider.value < 60f)
             {
                 if (!trainAudioTriggered)
                 {
                     TGVsounds.tgvnoises.PlayTGVAudioMoving();
                     trainAudioTriggered = true;
                 }
+
+                cinemachinedollycart.m_Speed = cinemachinedollycart.m_Speed;
+                cinemachinedollycart1.m_Speed = cinemachinedollycart.m_Speed;
+
+                Brake.SetActive(true);
+                BrakeHold.SetActive(true);
+                BrakeNeutral.SetActive(true);
+                EmergencyBrake.SetActive(true);
+            }
+            else
+            {
+                if (trainAudioTriggered)
+                {
+                    TGVsounds.tgvnoises.PlayTGVAudioAccelerate();
+                    trainAudioTriggered = false;
+                }
+
+                cinemachinedollycart.m_Speed = cinemachinedollycart.m_Speed + 1;
+                cinemachinedollycart1.m_Speed = cinemachinedollycart1.m_Speed + 1;
+    
+                Brake.SetActive(true);
+                BrakeHold.SetActive(true);
+                BrakeNeutral.SetActive(true);
+                EmergencyBrake.SetActive(true);
             }
         }
 
-        void LateUpdate()
+        public void Update()
         {
-            rb.velocity = transform.forward * forwardVelocity;
+            if (cinemachinedollycart.m_Speed >= 1f)
+            {
+                Doorbutton.SetActive(false);
+                //Doorbuttonvisible.SetActive(true);
+            }
+            else
+            {
+                Doorbutton.SetActive(true);
+                //Doorbuttonvisible.SetActive(false);
+            }
         }
+                
     }
 }
