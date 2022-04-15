@@ -30,13 +30,13 @@ public class Doorbutton : MonoBehaviour
         if (doorcounter % 2 == 1)
         {
             DoorText.text = "Door (close)";
-            Debug.Log("Door is opening." + doorcounter);
+            //Debug.Log("Door is opening." + doorcounter);
             DoorVideoplayer.clip = Doorvideos[0];
         }
         else
         {
             DoorText.text = "Door (open)";
-            Debug.Log("Door is closing." + doorcounter);
+            //Debug.Log("Door is closing." + doorcounter);
             DoorVideoplayer.clip = Doorvideos[1];
         }
 

@@ -34,7 +34,7 @@ namespace Cinemachine
         {
             brakevalue.text = brake.value + " Bar";
 
-            Debug.Log(cinemachinedollycart.m_Speed);
+            //Debug.Log(cinemachinedollycart.m_Speed);
         }
 
         public void OnValueChanged(float value)
@@ -42,15 +42,10 @@ namespace Cinemachine
 
             if (brake.value < 3 && brake.value >= 2)
             {
-                if (!trainAudioTriggered)
-                {
-                    TGVsounds.tgvnoises.PlayTGVAudioBrake();
-                    trainAudioTriggered = true;
-                }
                 cinemachinedollycart.m_Speed = 5f;
                 cinemachinedollycart1.m_Speed = 5f;
             }
-            else if (brake.value == 1 && brake.value <= 2)
+            else if (brake.value == 1)
             {
                 if (!trainAudioTriggered)
                 {

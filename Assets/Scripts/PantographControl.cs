@@ -42,7 +42,7 @@ public class PantographControl : MonoBehaviour
             //CircuitBreakervisible.SetActive(true);
             Horn.SetActive(false);
             //Hornrvisible.SetActive(true);
-            Debug.Log("Pantograph is lowered." + value);
+            //Debug.Log("Pantograph is lowered." + value);
         }
         else
         {
@@ -51,7 +51,7 @@ public class PantographControl : MonoBehaviour
             //CircuitBreakervisible.SetActive(false);
             Horn.SetActive(true);
             //Hornrvisible.SetActive(false);
-            Debug.Log("Pantograph has raised." + value);
+            //Debug.Log("Pantograph has raised." + value);
             TGVsounds.tgvnoises.PlayTGVAudioIdling();
         }
     

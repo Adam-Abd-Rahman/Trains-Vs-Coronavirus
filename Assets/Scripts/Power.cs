@@ -10,16 +10,18 @@ namespace Cinemachine
     {
         public Slider Powerslider;
         public Text Powervalue;
-        public SpeedSelector selectyourspeed;
+        //public SpeedSelector selectyourspeed;
         public GameObject TGVtrain;
         private CinemachineDollyCart cinemachinedollycart;
-        public CinemachineDollyCart1 cinemachinedollycart1;        
+        private CinemachineDollyCart1 cinemachinedollycart1;        
         public GameObject Brake;
         public GameObject BrakeHold;
         public GameObject BrakeNeutral;
         public GameObject EmergencyBrake;
         public GameObject Doorbutton;
         //public GameObject Doorbuttonvisible;
+        //public GameObject ManualControlSpeed;
+        //private DrivingMode drivingmode;
         public float SliderValue;
 
         bool trainAudioTriggered;
@@ -37,6 +39,9 @@ namespace Cinemachine
             TGVtrain = GameObject.Find("TGV");
             cinemachinedollycart = TGVtrain.GetComponent<CinemachineDollyCart>();
             cinemachinedollycart1 = TGVtrain.GetComponent<CinemachineDollyCart1>();
+
+            //ManualControlSpeed = GameObject.Find("Driving Mode");
+            //drivingmode = ManualControlSpeed.GetComponent<DrivingMode>();
         }
 
         public void OnValueChanged(float value)
@@ -64,8 +69,8 @@ namespace Cinemachine
                     trainAudioTriggered = true;
                 }
 
-                cinemachinedollycart.m_Speed = cinemachinedollycart.m_Speed;
-                cinemachinedollycart1.m_Speed = cinemachinedollycart.m_Speed;
+                cinemachinedollycart.m_Speed = cinemachinedollycart.m_Speed + 1;
+                cinemachinedollycart1.m_Speed = cinemachinedollycart1.m_Speed + 1;
 
                 Brake.SetActive(true);
                 BrakeHold.SetActive(true);
@@ -74,14 +79,8 @@ namespace Cinemachine
             }
             else
             {
-                if (trainAudioTriggered)
-                {
-                    TGVsounds.tgvnoises.PlayTGVAudioAccelerate();
-                    trainAudioTriggered = false;
-                }
-
-                cinemachinedollycart.m_Speed = cinemachinedollycart.m_Speed + 1;
-                cinemachinedollycart1.m_Speed = cinemachinedollycart1.m_Speed + 1;
+                cinemachinedollycart.m_Speed = cinemachinedollycart.m_Speed;
+                cinemachinedollycart1.m_Speed = cinemachinedollycart1.m_Speed;
     
                 Brake.SetActive(true);
                 BrakeHold.SetActive(true);

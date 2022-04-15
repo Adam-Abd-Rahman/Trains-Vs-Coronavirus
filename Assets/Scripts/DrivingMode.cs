@@ -10,6 +10,7 @@ public class DrivingMode : MonoBehaviour
     public Text DrivingmodeText;
     public GameObject SpeedselectorControl;
     //public GameObject SpeedselectorControlvisible;
+    public float ManualControl;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,7 @@ public class DrivingMode : MonoBehaviour
             DrivingmodeText.text = "Manual control";
             SpeedselectorControl.SetActive(false);
             //SpeedselectorControlvisible.SetActive(true);
-            //Powerslider.maxValue = 100;
+            //ManualControl = 100;
             Debug.Log("Using Manual Control." + value);
         }
         else

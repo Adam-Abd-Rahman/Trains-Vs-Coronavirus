@@ -28,7 +28,7 @@ namespace Cinemachine
        
         public void ChangeDestination(int part)
         {
-            Debug.Log(part);
+            //Debug.Log(part);
             if (part == 0)
             {
                 path.enabled = true;

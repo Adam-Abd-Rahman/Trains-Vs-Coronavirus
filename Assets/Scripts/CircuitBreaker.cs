@@ -42,7 +42,7 @@ public class CircuitBreaker : MonoBehaviour
             //Powervisible.SetActive(false);
             Doorbutton.SetActive(true);
             //Doorbuttonvisible.SetActive(false);
-            Debug.Log("Circuit Breaker is disable." + CircuitBreakercounter);
+            //Debug.Log("Circuit Breaker is disable." + CircuitBreakercounter);
         }
         else
         {
@@ -61,7 +61,7 @@ public class CircuitBreaker : MonoBehaviour
             //Powervisible.SetActive(true);
             Doorbutton.SetActive(false);
             //Doorbuttonvisible.SetActive(true);
-            Debug.Log("Circuit Breaker is able." + CircuitBreakercounter);
+            //Debug.Log("Circuit Breaker is able." + CircuitBreakercounter);
         }
     }
 

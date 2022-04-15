@@ -8,7 +8,6 @@ public class EmergencyBrake : MonoBehaviour
     public Text EmergencyBraketext;
     public Text EmergencyBrakevalue;
     private int EmergencyBrakecounter = 0;
-    private int EmergencyBrakevaluecounter = 0;
 
     public void EmergencyBrakeTextIsActive()
     {
@@ -25,14 +24,6 @@ public class EmergencyBrake : MonoBehaviour
 
     public void WhenEmergencyBrakeIsActive()
     {
-        EmergencyBrakevaluecounter++;
-        if (EmergencyBrakevaluecounter % 2 == 1)
-        {
-            EmergencyBrakevalue.text = "0";
-        }
-        else
-        {
-            EmergencyBrakevalue.text = "3";
-        }        
+       
     }
 }

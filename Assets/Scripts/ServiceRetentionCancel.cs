@@ -17,13 +17,13 @@ public class ServiceRetentionCancel : MonoBehaviour
             ServiceRetentionCanceltext.text = "Service Retention Cancel (on)";
             AuxillaryPowerOn.SetActive(false);
             //AuxillaryPowerOnvisible.SetActive(true);
-            Debug.Log("Service Retention Cancel is disable." + counter);
+            //Debug.Log("Service Retention Cancel is disable." + counter);
         }
         else{
             ServiceRetentionCanceltext.text = "Service Retention Cancel (off)";
             AuxillaryPowerOn.SetActive(true);
             //AuxillaryPowerOnvisible.SetActive(false);
-            Debug.Log("Service Retention Cancel is able." + counter);
+            //Debug.Log("Service Retention Cancel is able." + counter);
         }
     }
 }

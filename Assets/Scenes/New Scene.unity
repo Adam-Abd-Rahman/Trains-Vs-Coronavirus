@@ -976,7 +976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Power: {fileID: 1210346224}
   Powervisible: {fileID: 522383277}
-  GameScore: {fileID: 207770964}
+  GameScore: {fileID: 0}
   BrakeHoldtext: {fileID: 2141069537}
 --- !u!114 &178780005
 MonoBehaviour:
@@ -1158,7 +1158,6 @@ GameObject:
   - component: {fileID: 207770967}
   - component: {fileID: 207770966}
   - component: {fileID: 207770965}
-  - component: {fileID: 207770968}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -1227,24 +1226,6 @@ RectTransform:
   m_AnchoredPosition: {x: 181.7, y: -38.7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &207770968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207770964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69bfa160f82a8514991ee0f9133ba761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distancescore: {fileID: 0}
-  distancescore1: {fileID: 0}
-  TGVtrain: {fileID: 682643035}
-  ScoreText: {fileID: 207770965}
-  Score: 5
-  GameOver: {fileID: 1662187634}
 --- !u!1 &218255887
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,7 +2324,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2401,7 +2382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &522383278
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2842,6 +2823,7 @@ MonoBehaviour:
   Powerslider: {fileID: 1210346226}
   DrivingmodeText: {fileID: 1576096571}
   SpeedselectorControl: {fileID: 1951783901}
+  ManualControl: 0
 --- !u!114 &561469879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3310,7 +3292,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TGVmoving: {fileID: 8300000, guid: 102d49d0d272b7549abeefd4d4a43ff2, type: 3}
   TGVidling: {fileID: 8300000, guid: 359384e41dd45e341a7ddeb6c9334840, type: 3}
-  TGVaccelerating: {fileID: 8300000, guid: 1568ea2b39f07534b9e4e709ba91c33b, type: 3}
   TGVbraking: {fileID: 8300000, guid: b232c78da8c31a543bab1b1d13456a60, type: 3}
   Rev: {fileID: 8300000, guid: b8f646151ce53a54288461e93f561747, type: 3}
   doorsound: {fileID: 8300000, guid: b285d61fa7fe0764da5f296f1cc2e8b4, type: 3}
@@ -4470,7 +4451,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5037,7 +5018,7 @@ GameObject:
   - component: {fileID: 1058824484}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: traindestination
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6163,9 +6144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Powerslider: {fileID: 1210346226}
   Powervalue: {fileID: 2062528936}
-  selectyourspeed: {fileID: 1951783903}
   TGVtrain: {fileID: 682643035}
-  cinemachinedollycart1: {fileID: 0}
   Brake: {fileID: 1613817803}
   BrakeHold: {fileID: 178780002}
   BrakeNeutral: {fileID: 720584228}
@@ -8461,6 +8440,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1705930958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1705930962}
+  - component: {fileID: 1705930959}
+  - component: {fileID: 1705930960}
+  - component: {fileID: 1705930963}
+  m_Layer: 0
+  m_Name: Speedlimit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1705930959
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705930958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &1705930960
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705930958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 6.59}
+--- !u!4 &1705930962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705930958}
+  m_LocalRotation: {x: 0, y: 0.009449941, z: 0, w: 0.99995536}
+  m_LocalPosition: {x: -3.298, y: 0.53999996, z: -25.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1705930963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705930958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69bfa160f82a8514991ee0f9133ba761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TGVtrain: {fileID: 682643035}
+  ScoreText: {fileID: 207770965}
+  Score: 5
+  GameOver: {fileID: 1662187634}
 --- !u!1001 &1726761905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9479,7 +9533,7 @@ GameObject:
   - component: {fileID: 1988178048}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: traindestination
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -6,7 +6,6 @@ public class TGVsounds : MonoBehaviour
 {
     public AudioClip TGVmoving;
     public AudioClip TGVidling;
-    public AudioClip TGVaccelerating;
     public AudioClip TGVbraking;
     public AudioClip Rev;
     public AudioClip doorsound;
@@ -44,12 +43,6 @@ public class TGVsounds : MonoBehaviour
     {
         TGVaudio.clip = TGVidling;
         TGVaudio.Stop();
-    }
-
-    public void PlayTGVAudioAccelerate()
-    {
-        TGVaudio.clip = TGVaccelerating;
-        TGVaudio.Play();
     }
 
     public void PlayTGVAudioBrake()
