@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class SpeedSelector : MonoBehaviour
 {
     public Slider SelectedSpeed;
-    public Slider Powerslider;
     public Text SpeedSelectorvalue;
 
     // Start is called before the first frame update

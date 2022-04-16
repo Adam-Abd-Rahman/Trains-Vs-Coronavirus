@@ -2,29 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Serialization;
 
-namespace Cinemachine
+public class EmergencyBrakevisible : MonoBehaviour
 {
-
-    public class EmergencyBrake : MonoBehaviour
-    {
-        private float zeroscore = 0f;
-
         public Text EmergencyBraketext;
         private int EmergencyBrakecounter = 0;
 
-        public GameObject drivingpanel;
-        private GameScore EmergencyBrakeScore;
-
         public Slider brakeslider;
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            drivingpanel = GameObject.Find("Canvas");
-            EmergencyBrakeScore = drivingpanel.GetComponent<GameScore>();
-        }
 
         public void EmergencyBrakeTextIsActive()
         {
@@ -41,7 +25,7 @@ namespace Cinemachine
 
         public void ButtonClicked()
         {
-            EmergencyBrakeScore.SetScoreText(zeroscore);
+            //EmergencyBrakeScore.SetScoreText(zeroscore);
 
             if (brakeslider.value == 3)
             {
@@ -52,5 +36,4 @@ namespace Cinemachine
                 brakeslider.value = 0;
             }
         }
-    }
 }

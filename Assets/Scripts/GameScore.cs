@@ -40,6 +40,11 @@ namespace Cinemachine
         public void SetScoreText(float Score)
         {
             ScoreText.text = "Game Score: " + Score;
+
+            if (Score == 0)
+            {
+                GameOver.text = "Game Over!!!";
+            }
         }
 
     }

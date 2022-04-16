@@ -17,7 +17,7 @@ namespace Cinemachine
 
         public GameObject drivingpanel;
         private GameScore ScoreBySpeedLimit;
-
+    
         // Start is called before the first frame update
         void Start()
         {
@@ -27,9 +27,8 @@ namespace Cinemachine
 
             drivingpanel = GameObject.Find("Canvas");
             ScoreBySpeedLimit = drivingpanel.GetComponent<GameScore>();
-
         }
-
+    
         private void OnTriggerEnter(Collider other)
         {
 

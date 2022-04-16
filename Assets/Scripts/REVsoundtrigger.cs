@@ -4,21 +4,28 @@ using UnityEngine;
 
 public class REVsoundtrigger : MonoBehaviour
 {
+    public AudioClip Rev;
+
+    AudioSource TGVRevAudio;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        TGVRevAudio = GetComponent<AudioSource>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         
         if (other.tag == "Revsound")
         {
-            TGVsounds.tgvnoises.PlayRev();
+            PlayRev();
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void PlayRev()
     {
-
-        if (other.tag == "Revsound")
-        {
-            TGVsounds.tgvnoises.PlayTGVAudioMoving();
-        }
+        TGVRevAudio.clip = Rev;
+        TGVRevAudio.Play();
     }
 }

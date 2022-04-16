@@ -20,9 +20,12 @@ namespace Cinemachine
         public GameObject EmergencyBrake;
         public GameObject Doorbutton;
         //public GameObject Doorbuttonvisible;
-        //public GameObject ManualControlSpeed;
-        //private DrivingMode drivingmode;
+        public GameObject drivingmode;
         public float SliderValue;
+
+        public AudioClip TGVmoving;
+
+        AudioSource TGVmovingaudio;
 
         bool trainAudioTriggered;
         
@@ -42,6 +45,11 @@ namespace Cinemachine
 
             //ManualControlSpeed = GameObject.Find("Driving Mode");
             //drivingmode = ManualControlSpeed.GetComponent<DrivingMode>();
+
+            TGVmovingaudio = GetComponent<AudioSource>();
+
+            //drivingmode = GameObject.Find("Driving Mode").GetComponent<Slider>().value;
+            //Debug.Log(drivingmode.value);
         }
 
         public void OnValueChanged(float value)
@@ -50,11 +58,6 @@ namespace Cinemachine
             
             if (Powerslider.value == 0f)
             {
-                if (!trainAudioTriggered)
-                {
-                    TGVsounds.tgvnoises.PlayTGVAudioIdling();
-                    trainAudioTriggered = true;
-                }
 
                 Brake.SetActive(true);
                 BrakeHold.SetActive(true);
@@ -63,11 +66,6 @@ namespace Cinemachine
             }
             else if (Powerslider.value >= 1f && Powerslider.value < 60f)
             {
-                if (!trainAudioTriggered)
-                {
-                    TGVsounds.tgvnoises.PlayTGVAudioMoving();
-                    trainAudioTriggered = true;
-                }
 
                 cinemachinedollycart.m_Speed = cinemachinedollycart.m_Speed + 1;
                 cinemachinedollycart1.m_Speed = cinemachinedollycart1.m_Speed + 1;
@@ -76,6 +74,8 @@ namespace Cinemachine
                 BrakeHold.SetActive(true);
                 BrakeNeutral.SetActive(true);
                 EmergencyBrake.SetActive(true);
+
+                PlayTGVAudioMoving(); 
             }
             else
             {
@@ -86,6 +86,8 @@ namespace Cinemachine
                 BrakeHold.SetActive(true);
                 BrakeNeutral.SetActive(true);
                 EmergencyBrake.SetActive(true);
+
+                PlayTGVAudioMoving();
             }
         }
 
@@ -101,7 +103,24 @@ namespace Cinemachine
                 Doorbutton.SetActive(true);
                 //Doorbuttonvisible.SetActive(false);
             }
+
+            if (cinemachinedollycart.m_Speed == 0f)
+            {
+                TGVmovingaudio.clip = TGVmoving;
+                TGVmovingaudio.Stop();
+            }
+
+            //if (cinemachinedollycart.m_Speed == 0f)
+            //{
+                //cinemachinedollycart.m_Speed = ;
+            //}
         }
-                
+
+        public void PlayTGVAudioMoving()
+        {
+            TGVmovingaudio.clip = TGVmoving;
+            TGVmovingaudio.Play();
+        }
+
     }
 }

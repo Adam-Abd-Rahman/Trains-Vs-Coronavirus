@@ -10,13 +10,6 @@ public class DrivingMode : MonoBehaviour
     public Text DrivingmodeText;
     public GameObject SpeedselectorControl;
     //public GameObject SpeedselectorControlvisible;
-    public float ManualControl;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Debug.Log(Powerslider.maxValue);
-    }
 
     public void WhenDrivingModeIsActive(float value)
     {
@@ -25,22 +18,21 @@ public class DrivingMode : MonoBehaviour
             DrivingmodeText.text = "Off";
             SpeedselectorControl.SetActive(false);
             //SpeedselectorControlvisible.SetActive(true);
-            Debug.Log("Driving mode is off." + value);
+            //Debug.Log("Driving mode is off." + value);
         }
         else if (value == 1)
         {
             DrivingmodeText.text = "Manual control";
             SpeedselectorControl.SetActive(false);
             //SpeedselectorControlvisible.SetActive(true);
-            //ManualControl = 100;
-            Debug.Log("Using Manual Control." + value);
+            //Debug.Log("Using Manual Control." + value);
         }
         else
         {
             DrivingmodeText.text = "Selected speed control";
             SpeedselectorControl.SetActive(true);
             //SpeedselectorControlvisible.SetActive(false);
-            Debug.Log("Using the speed selector." + value);
+            //Debug.Log("Using the speed selector." + value);
         }
     }
 }
