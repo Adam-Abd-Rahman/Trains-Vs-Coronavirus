@@ -10,6 +10,7 @@ namespace Cinemachine
     {
         public Slider brake;
         public Text brakevalue;
+        public Button EmergencyBrake;
         public GameObject TGVtrain;
         private CinemachineDollyCart cinemachinedollycart;
         public CinemachineDollyCart1 cinemachinedollycart1;
@@ -27,6 +28,8 @@ namespace Cinemachine
             TGVtrain = GameObject.Find("TGV");
             cinemachinedollycart = TGVtrain.GetComponent<CinemachineDollyCart>();
             cinemachinedollycart1 = TGVtrain.GetComponent<CinemachineDollyCart1>();
+
+            EmergencyBrake.onClick.AddListener(ButtonClicked);
         }
 
         // Update is called once per frame
@@ -39,7 +42,6 @@ namespace Cinemachine
 
         public void OnValueChanged(float value)
         {
-
             if (brake.value < 3 && brake.value >= 2)
             {
                 cinemachinedollycart.m_Speed = 5f;
@@ -72,6 +74,18 @@ namespace Cinemachine
                     TGVsounds.tgvnoises.StopTGVAudioBrake();
                     trainAudioTriggered = false;
                 }
+            }
+        }
+
+        public void ButtonClicked()
+        {
+            if (brake.value == 3)
+            {
+                brake.value = 0;
+            }
+            else
+            {
+                brake.value = 3;
             }
         }
     }

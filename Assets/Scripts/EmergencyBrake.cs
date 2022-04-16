@@ -7,8 +7,9 @@ public class EmergencyBrake : MonoBehaviour
 {
     public Text EmergencyBraketext;
     public Text EmergencyBrakevalue;
+    //public Slider brakeslider;
     private int EmergencyBrakecounter = 0;
-
+   
     public void EmergencyBrakeTextIsActive()
     {
         EmergencyBrakecounter++;
@@ -20,10 +21,5 @@ public class EmergencyBrake : MonoBehaviour
         {
             EmergencyBraketext.text = "Emergency Brake (off)";
         }
-    }
-
-    public void WhenEmergencyBrakeIsActive()
-    {
-       
     }
 }

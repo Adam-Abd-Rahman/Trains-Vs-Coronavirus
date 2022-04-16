@@ -11,8 +11,9 @@ namespace Cinemachine
         public GameObject TGVtrain;
         private CinemachineDollyCart cinemachinedollycart;
         private CinemachineDollyCart1 cinemachinedollycart1;
+
         public Text ScoreText;
-        public float Score = 5;
+        //public float Score;
         //private float pointsDecreasedPerSecond;
         public Text GameOver;
 
@@ -26,7 +27,6 @@ namespace Cinemachine
             cinemachinedollycart1 = TGVtrain.GetComponent<CinemachineDollyCart1>();
 
             GameOver.text = "";
-            //Score = 5;
         }
 
         // Update is called once per frame
@@ -34,39 +34,12 @@ namespace Cinemachine
         {
             //Score -= pointsDecreasedPerSecond * Time.deltaTime;
             //ScoreText.text = Score.ToString("0");
-            SetScoreText();
+            //SetScoreText();
         }
 
-        void SetScoreText()
+        public void SetScoreText(float Score)
         {
             ScoreText.text = "Game Score: " + Score;
-
-            if (cinemachinedollycart.m_Position > 74.3f && cinemachinedollycart.m_Position < 75.1f)
-            {
-                Score = 504;
-            }
-
-            if (cinemachinedollycart.m_Position == 75.2f)
-            {
-                Score = 25200;
-            }
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-
-            if (cinemachinedollycart.m_Speed <= 5)
-            {
-                Score = 10;
-                //Debug.Log("Success");
-
-            }
-            else
-            {
-                Score = 1;
-                //Debug.Log("Not Success");
-
-            }
         }
 
     }
