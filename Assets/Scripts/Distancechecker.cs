@@ -11,7 +11,7 @@ namespace Cinemachine
         // Reference to checkpoint position
         [SerializeField]
         private Transform checkpoint;
-
+    
         // Reference to UI text that shows the distance value
         [SerializeField]
         private Text distanceText;
@@ -23,7 +23,6 @@ namespace Cinemachine
         private float pluscorefor0meters = 699f;
 
         CinemachineDollyCart cinemachinedollycart;
-        CinemachineDollyCart1 cinemachinedollycart1;
 
         public GameObject drivingpanel;
         private GameScore ScoreByDistance;
@@ -32,9 +31,7 @@ namespace Cinemachine
         void Start()
         {
             cinemachinedollycart = GetComponent<CinemachineDollyCart>();
-            cinemachinedollycart1 = GetComponent<CinemachineDollyCart1>();
         
-            drivingpanel = GameObject.Find("Canvas");
             ScoreByDistance = drivingpanel.GetComponent<GameScore>();
         }
 
@@ -55,7 +52,7 @@ namespace Cinemachine
             {
                 ScoreByDistance.SetScoreText(plusscore);
             }
-
+    
             if (cinemachinedollycart.m_Position == 75.2f)
             {
                 ScoreByDistance.SetScoreText(pluscorefor0meters);

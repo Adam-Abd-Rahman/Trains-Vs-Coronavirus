@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class DrivingMode : MonoBehaviour
 {
     public Slider Drivingmode;
-    public Slider Powerslider;
+    public GameObject Powerslider;    
+    public GameObject Powersliderselectedspeed;
+    public GameObject Powerslidervisible;
     public Text DrivingmodeText;
     public GameObject SpeedselectorControl;
     //public GameObject SpeedselectorControlvisible;
@@ -18,6 +20,9 @@ public class DrivingMode : MonoBehaviour
             DrivingmodeText.text = "Off";
             SpeedselectorControl.SetActive(false);
             //SpeedselectorControlvisible.SetActive(true);
+            Powerslider.SetActive(false);
+            Powersliderselectedspeed.SetActive(false);
+            Powerslidervisible.SetActive(true);
             //Debug.Log("Driving mode is off." + value);
         }
         else if (value == 1)
@@ -25,6 +30,9 @@ public class DrivingMode : MonoBehaviour
             DrivingmodeText.text = "Manual control";
             SpeedselectorControl.SetActive(false);
             //SpeedselectorControlvisible.SetActive(true);
+            Powerslider.SetActive(true);
+            Powersliderselectedspeed.SetActive(false);
+            Powerslidervisible.SetActive(false);
             //Debug.Log("Using Manual Control." + value);
         }
         else
@@ -32,6 +40,9 @@ public class DrivingMode : MonoBehaviour
             DrivingmodeText.text = "Selected speed control";
             SpeedselectorControl.SetActive(true);
             //SpeedselectorControlvisible.SetActive(false);
+            Powerslider.SetActive(false);
+            Powersliderselectedspeed.SetActive(true);
+            Powerslidervisible.SetActive(false);
             //Debug.Log("Using the speed selector." + value);
         }
     }

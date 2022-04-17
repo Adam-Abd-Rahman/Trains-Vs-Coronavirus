@@ -7,6 +7,7 @@ public class SpeedSelector : MonoBehaviour
 {
     public Slider SelectedSpeed;
     public Text SpeedSelectorvalue;
+    public Slider Powersliderselectedspeed;
 
     // Start is called before the first frame update
     void Start()
@@ -15,13 +16,17 @@ public class SpeedSelector : MonoBehaviour
             SpeedSelectorvalue.text = v.ToString("0");
         });
 
-        //Powerslider = GameObject.Find("Power").GetComponent<Slider>();
-        //Debug.Log(Powerslider.maxValue);
+        Powersliderselectedspeed = GameObject.Find("Power (speedselector)").GetComponent<Slider>();
+    }
+
+    void Update()
+    {
+        Debug.Log(Powersliderselectedspeed.value);
     }
 
     public void OnValueChanged(float value)
     {
-        //Debug.Log("New Value" + value);
+        Debug.Log("New Value" + value);
         //Powerslider.maxValue = value;
     }
 

@@ -17,7 +17,7 @@ namespace Cinemachine
 
         public GameObject drivingpanel;
         private GameScore ScoreBySpeedLimit;
-
+    
         // Start is called before the first frame update
         void Start()
         {
@@ -25,9 +25,7 @@ namespace Cinemachine
             cinemachinedollycart = TGVtrain.GetComponent<CinemachineDollyCart>();
             cinemachinedollycart1 = TGVtrain.GetComponent<CinemachineDollyCart1>();
 
-            drivingpanel = GameObject.Find("Canvas");
             ScoreBySpeedLimit = drivingpanel.GetComponent<GameScore>();
-
         }
 
         private void OnTriggerEnter(Collider other)

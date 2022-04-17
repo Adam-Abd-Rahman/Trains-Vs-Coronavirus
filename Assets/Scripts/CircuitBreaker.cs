@@ -7,7 +7,7 @@ public class CircuitBreaker : MonoBehaviour
 {
     public Text CircuitBreakerText;
     public GameObject Brake;
-    //public GameObject Brakevisible;
+    public GameObject Brakevisible;
     public GameObject BrakeHold;
     //public GameObject BrakeHoldvisible;
     public GameObject BrakeNeutral;
@@ -16,8 +16,6 @@ public class CircuitBreaker : MonoBehaviour
     public GameObject EmergencyBrakevisible;
     public GameObject Drivingmode;
     //public GameObject Drivingmodevisible;
-    public GameObject Power;
-    public GameObject Powervisible;
     public GameObject Doorbutton;
     //public GameObject Doorbuttonvisible;
     private int CircuitBreakercounter = 0; 
@@ -28,18 +26,16 @@ public class CircuitBreaker : MonoBehaviour
         if (CircuitBreakercounter % 2 == 1)
         {
             CircuitBreakerText.text = "Circuit Breaker (on)";
-            Brake.SetActive(true);
-            //Brakevisible.SetActive(false);
             BrakeHold.SetActive(true);
             //BrakeHoldvisible.SetActive(false);
             BrakeNeutral.SetActive(true);
             //BrakeNeutralvisible.SetActive(false);
             EmergencyBrake.SetActive(true);
             EmergencyBrakevisible.SetActive(false);
+            Brake.SetActive(true);
+            Brakevisible.SetActive(false);
             Drivingmode.SetActive(true);
             //Drivingmodevisible.SetActive(false);
-            Power.SetActive(true);
-            Powervisible.SetActive(false);
             Doorbutton.SetActive(true);
             //Doorbuttonvisible.SetActive(false);
             //Debug.Log("Circuit Breaker is disable." + CircuitBreakercounter);
@@ -47,18 +43,16 @@ public class CircuitBreaker : MonoBehaviour
         else
         {
             CircuitBreakerText.text = "Circuit Breaker (off)";
-            Brake.SetActive(false);
-            //Brakevisible.SetActive(true);
             BrakeHold.SetActive(false);
             //BrakeHoldvisible.SetActive(true);
             BrakeNeutral.SetActive(false);
             //BrakeNeutralvisible.SetActive(true);
             EmergencyBrake.SetActive(false);
             EmergencyBrakevisible.SetActive(true);
+            Brake.SetActive(false);
+            Brakevisible.SetActive(true);
             Drivingmode.SetActive(false);
             //Drivingmodevisible.SetActive(true);
-            Power.SetActive(false) ;
-            Powervisible.SetActive(true);
             Doorbutton.SetActive(false);
             //Doorbuttonvisible.SetActive(true);
             //Debug.Log("Circuit Breaker is able." + CircuitBreakercounter);

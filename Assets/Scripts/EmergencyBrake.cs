@@ -22,7 +22,6 @@ namespace Cinemachine
         // Start is called before the first frame update
         void Start()
         {
-            drivingpanel = GameObject.Find("Canvas");
             EmergencyBrakeScore = drivingpanel.GetComponent<GameScore>();
         }
 
@@ -38,11 +37,11 @@ namespace Cinemachine
                 EmergencyBraketext.text = "Emergency Brake (off)";
             }
         }
-
+    
         public void ButtonClicked()
         {
             EmergencyBrakeScore.SetScoreText(zeroscore);
-
+        
             if (brakeslider.value == 3)
             {
                 brakeslider.value = 3;

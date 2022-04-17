@@ -6,11 +6,13 @@ using UnityEngine.Serialization;
 
 namespace Cinemachine
 {
-    public class Power : MonoBehaviour
+    public class Powerselectedspeed : MonoBehaviour
     {
 
-        public Slider Powerslider;
-        public Text Powervalue;
+        public Slider Powerselectedspeedslider;
+        public Text Powerselectedspeedslidervalue;
+        public Slider SelectedSpeed;
+        public Text SpeedSelectorvalue;
         public GameObject TGVtrain;
         private CinemachineDollyCart cinemachinedollycart;
         private CinemachineDollyCart1 cinemachinedollycart1;        
@@ -18,8 +20,6 @@ namespace Cinemachine
         public GameObject BrakeHold;
         public GameObject BrakeNeutral;
         public GameObject EmergencyBrake;
-        public GameObject Doorbutton;
-        //public GameObject Doorbuttonvisible;
 
         public AudioClip TGVmoving;
 
@@ -30,23 +30,26 @@ namespace Cinemachine
         // Start is called before the first frame update
         void Start()
         {
-            Powerslider.onValueChanged.AddListener((v) =>
+            Powerselectedspeedslider.onValueChanged.AddListener((v) =>
             {
-                Powervalue.text = v.ToString("0");
+                Powerselectedspeedslidervalue.text = v.ToString("0");
+            });
+
+            SelectedSpeed.onValueChanged.AddListener((v) => {
+                SpeedSelectorvalue.text = v.ToString("0");
             });
 
             TGVtrain = GameObject.Find("TGV");
             cinemachinedollycart = TGVtrain.GetComponent<CinemachineDollyCart>();
             cinemachinedollycart1 = TGVtrain.GetComponent<CinemachineDollyCart1>();
-
+      
             TGVmovingaudio = GetComponent<AudioSource>();
         }
 
         public void OnValueChanged(float value)
         {
-            //SliderValue = value;
-            
-            if (Powerslider.value == 0f)
+              
+            if (Powerselectedspeedslider.value == 0f)
             {
 
                 Brake.SetActive(true);
@@ -54,7 +57,7 @@ namespace Cinemachine
                 BrakeNeutral.SetActive(true);
                 EmergencyBrake.SetActive(true);
             }
-            else if (Powerslider.value >= 1f && Powerslider.value < 10f)
+            else if (Powerselectedspeedslider.value >= 1f && Powerselectedspeedslider.value < 10f)
             {
 
                 cinemachinedollycart.m_Speed = 10;
@@ -67,7 +70,7 @@ namespace Cinemachine
 
                 PlayTGVAudioMoving(); 
             }
-            else if (Powerslider.value >= 10f && Powerslider.value < 20f)
+            else if (Powerselectedspeedslider.value >= 10f && Powerselectedspeedslider.value < 20f)
             {
 
                 cinemachinedollycart.m_Speed = 20;
@@ -80,7 +83,7 @@ namespace Cinemachine
 
                 PlayTGVAudioMoving();
             }
-            else if (Powerslider.value >= 20f && Powerslider.value < 40f)
+            else if (Powerselectedspeedslider.value >= 20f && Powerselectedspeedslider.value < 40f)
             {
 
                 cinemachinedollycart.m_Speed = 20;
@@ -93,7 +96,7 @@ namespace Cinemachine
 
                 PlayTGVAudioMoving();
             }
-            else if (Powerslider.value >= 40f && Powerslider.value < 60f)
+            else if (Powerselectedspeedslider.value >= 40f && Powerselectedspeedslider.value < 60f)
             {
 
                 cinemachinedollycart.m_Speed = 50;
@@ -122,22 +125,14 @@ namespace Cinemachine
 
         public void Update()
         {
-            if (cinemachinedollycart.m_Speed >= 1f)
-            {
-                Doorbutton.SetActive(false);
-                //Doorbuttonvisible.SetActive(true);
-            }
-            else
-            {
-                Doorbutton.SetActive(true);
-                //Doorbuttonvisible.SetActive(false);
-            }
-
             if (cinemachinedollycart.m_Speed == 0f)
             {
                 TGVmovingaudio.clip = TGVmoving;
                 TGVmovingaudio.Stop();
             }
+
+            Debug.Log("Power selected speed Value " + Powerselectedspeedslider.value);
+            Debug.Log("Selected speed Value " + SelectedSpeed.value);
         }
 
         public void PlayTGVAudioMoving()
