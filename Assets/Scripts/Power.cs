@@ -120,6 +120,7 @@ namespace Cinemachine
             }
         }
 
+        // Update is called once per frame
         public void Update()
         {
             if (cinemachinedollycart.m_Speed >= 1f)

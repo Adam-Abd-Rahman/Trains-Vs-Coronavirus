@@ -13,16 +13,6 @@ namespace Cinemachine
         public Slider Pantographmode;
         public Text PantographModeText;
 
-        public GameObject drivingpanel;
-        private GameScore ScoreByPower;
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            drivingpanel = GameObject.Find("Canvas");
-            ScoreByPower = drivingpanel.GetComponent<GameScore>();
-        }
-
         public void WhenPantographModeIsActive(float value)
         {
             if (value == 0)
@@ -39,16 +29,6 @@ namespace Cinemachine
             {
                 PantographModeText.text = "LGV";
                 //Debug.Log("Using LGV power supply." + value);
-            }
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-
-            if (Pantographmode.value > 0)
-            {
-                //ScoreByPower.SetScoreText(error);
-                Debug.Log("fail");
             }
         }
 
