@@ -11,14 +11,15 @@ namespace Cinemachine
 
         public Slider Powerselectedspeedslider;
         public Text Powerselectedspeedslidervalue;
+
         public Slider SelectedSpeed;
-        public Text SpeedSelectorvalue;
+        public Slider Power;
+
         public GameObject TGVtrain;
         private CinemachineDollyCart cinemachinedollycart;
-        private CinemachineDollyCart1 cinemachinedollycart1;        
+        private CinemachineDollyCart1 cinemachinedollycart1;     
+        
         public GameObject Brake;
-        public GameObject BrakeHold;
-        public GameObject BrakeNeutral;
         public GameObject EmergencyBrake;
 
         public AudioClip TGVmoving;
@@ -35,10 +36,6 @@ namespace Cinemachine
                 Powerselectedspeedslidervalue.text = v.ToString("0");
             });
 
-            SelectedSpeed.onValueChanged.AddListener((v) => {
-                SpeedSelectorvalue.text = v.ToString("0");
-            });
-
             TGVtrain = GameObject.Find("TGV");
             cinemachinedollycart = TGVtrain.GetComponent<CinemachineDollyCart>();
             cinemachinedollycart1 = TGVtrain.GetComponent<CinemachineDollyCart1>();
@@ -53,8 +50,6 @@ namespace Cinemachine
             {
 
                 Brake.SetActive(true);
-                BrakeHold.SetActive(true);
-                BrakeNeutral.SetActive(true);
                 EmergencyBrake.SetActive(true);
             }
             else if (Powerselectedspeedslider.value >= 1f && Powerselectedspeedslider.value < 10f)
@@ -64,8 +59,6 @@ namespace Cinemachine
                 cinemachinedollycart1.m_Speed = 10;
 
                 Brake.SetActive(true);
-                BrakeHold.SetActive(true);
-                BrakeNeutral.SetActive(true);
                 EmergencyBrake.SetActive(true);
 
                 PlayTGVAudioMoving(); 
@@ -77,8 +70,6 @@ namespace Cinemachine
                 cinemachinedollycart1.m_Speed = 20;
 
                 Brake.SetActive(true);
-                BrakeHold.SetActive(true);
-                BrakeNeutral.SetActive(true);
                 EmergencyBrake.SetActive(true);
 
                 PlayTGVAudioMoving();
@@ -90,8 +81,6 @@ namespace Cinemachine
                 cinemachinedollycart1.m_Speed = 20;
 
                 Brake.SetActive(true);
-                BrakeHold.SetActive(true);
-                BrakeNeutral.SetActive(true);
                 EmergencyBrake.SetActive(true);
 
                 PlayTGVAudioMoving();
@@ -103,24 +92,21 @@ namespace Cinemachine
                 cinemachinedollycart1.m_Speed = 50;
 
                 Brake.SetActive(true);
-                BrakeHold.SetActive(true);
-                BrakeNeutral.SetActive(true);
                 EmergencyBrake.SetActive(true);
 
                 PlayTGVAudioMoving();
             }
             else
             {
-                cinemachinedollycart.m_Speed = 100;
-                cinemachinedollycart1.m_Speed = 100;
+                cinemachinedollycart.m_Speed = SelectedSpeed.value;
+                cinemachinedollycart1.m_Speed = SelectedSpeed.value;
     
                 Brake.SetActive(true);
-                BrakeHold.SetActive(true);
-                BrakeNeutral.SetActive(true);
                 EmergencyBrake.SetActive(true);
 
                 PlayTGVAudioMoving();
             }
+
         }
 
         public void Update()
@@ -131,8 +117,7 @@ namespace Cinemachine
                 TGVmovingaudio.Stop();
             }
 
-            Debug.Log("Power selected speed Value " + Powerselectedspeedslider.value);
-            Debug.Log("Selected speed Value " + SelectedSpeed.value);
+            Powerselectedspeedslider.value = Power.value;
         }
 
         public void PlayTGVAudioMoving()

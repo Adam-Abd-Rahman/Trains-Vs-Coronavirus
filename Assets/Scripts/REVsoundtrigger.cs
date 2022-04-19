@@ -14,13 +14,9 @@ public class REVsoundtrigger : MonoBehaviour
         TGVRevAudio = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        
-        if (other.tag == "Revsound")
-        {
-            PlayRev();
-        }
+        PlayRev();
     }
 
     public void PlayRev()

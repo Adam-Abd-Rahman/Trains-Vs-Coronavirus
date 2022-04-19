@@ -6,18 +6,20 @@ using UnityEngine.Serialization;
 
 namespace Cinemachine
 {
-    public class TimerForVACMA : MonoBehaviour
+    public class TimerByVACMAandCrocodile : MonoBehaviour
     {
-        public Text VACMAtimer;
+        public Text VACMAandCrocodiletimer;
         private float fiveminutetimer;
         private float TimeDecreasedBySecond;
 
         private float zeropoints = 0f;
 
         public GameObject drivingpanel;
-        private GameScore ScoreByVACMA;
+        private GameScore ScoreByVACMAandCrocodile;
 
         public Slider brakeslider;
+
+        bool CancelTimer = false;
 
         // Start is called before the first frame update
         void Start()
@@ -25,13 +27,13 @@ namespace Cinemachine
             fiveminutetimer = 5f;
             TimeDecreasedBySecond = 1f;
 
-            ScoreByVACMA = drivingpanel.GetComponent<GameScore>();
+            ScoreByVACMAandCrocodile = drivingpanel.GetComponent<GameScore>();
         }
 
         // Update is called once per frame
         void Update()
         {
-            VACMAtimer.text = fiveminutetimer.ToString("0");
+            VACMAandCrocodiletimer.text = fiveminutetimer.ToString("0");
             fiveminutetimer -= TimeDecreasedBySecond * Time.deltaTime;
 
             if (fiveminutetimer <= 0)
@@ -39,8 +41,13 @@ namespace Cinemachine
                brakeslider.value = 0;
                fiveminutetimer = 0;
 
-               ScoreByVACMA.SetScoreText(zeropoints);
+                ScoreByVACMAandCrocodile.SetScoreText(zeropoints);
             }
+        }
+
+        public void ButtonClicked()
+        {
+            CancelTimer = true; 
         }
     }
 }

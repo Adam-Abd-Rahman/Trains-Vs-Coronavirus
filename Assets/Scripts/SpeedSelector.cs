@@ -16,18 +16,18 @@ public class SpeedSelector : MonoBehaviour
             SpeedSelectorvalue.text = v.ToString("0");
         });
 
-        Powersliderselectedspeed = GameObject.Find("Power (speedselector)").GetComponent<Slider>();
+        //Powersliderselectedspeed = GameObject.Find("Power (speedselector)").GetComponent<Slider>();
     }
 
     void Update()
     {
-        Debug.Log(Powersliderselectedspeed.value);
+        //Debug.Log(Powersliderselectedspeed.value);
     }
 
-    public void OnValueChanged(float value)
-    {
-        Debug.Log("New Value" + value);
+    //public void OnValueChanged(float value)
+    //{
+        //Debug.Log("New Value" + value);
         //Powerslider.maxValue = value;
-    }
+    //}
 
 }

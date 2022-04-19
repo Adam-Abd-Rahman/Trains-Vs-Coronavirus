@@ -26,12 +26,7 @@ namespace Cinemachine
 
         private void OnTriggerStay(Collider other)
         {
-            if (Pantographmode.value == 0)
-            {
-                ScoreByPower.SetScoreText(success);
-                //Debug.Log("AC power on.");
-            }
-            else
+            if (Pantographmode.value > 0)
             {
                 ScoreByPower.SetScoreText(error);
                 //Debug.Log("fail.");

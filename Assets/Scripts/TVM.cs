@@ -34,30 +34,30 @@ namespace Cinemachine
         private void OnTriggerStay(Collider other)
         {
 
-            if (cinemachinedollycart.m_Speed <= 50)
+            if (cinemachinedollycart.m_Speed <= 5)
             {
-                //;
+                ScoreByTVM.SetScoreText(increasescore);
             }
-            else if (cinemachinedollycart.m_Speed >= 45 && cinemachinedollycart.m_Speed <= 50)
+            else if (cinemachinedollycart.m_Speed > 5 && cinemachinedollycart.m_Speed < 10)
             {
-                //ScoreBySpeedLimit.SetScoreText(increasescore);
+                ScoreByTVM.SetScoreText(increasescore);
             }
             else
             {
-                //ScoreBySpeedLimit.SetScoreText(decreasescore);
+                ScoreByTVM.SetScoreText(decreasescore);
             }
 
-            if (cinemachinedollycart1.m_Speed <= 50)
+            if (cinemachinedollycart1.m_Speed <= 5)
             {
-                //;
+                ScoreByTVM.SetScoreText(increasescore);
             }
-            else if (cinemachinedollycart1.m_Speed >= 45 && cinemachinedollycart1.m_Speed <= 50)
+            else if (cinemachinedollycart1.m_Speed > 5 && cinemachinedollycart1.m_Speed < 10)
             {
-                //ScoreBySpeedLimit.SetScoreText(increasescore);
+                ScoreByTVM.SetScoreText(increasescore);
             }
             else
             {
-                //ScoreBySpeedLimit.SetScoreText(decreasescore);
+                ScoreByTVM.SetScoreText(decreasescore);
             }
 
             TVMtext.GetComponent<Text>().text = "";

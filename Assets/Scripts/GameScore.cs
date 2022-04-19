@@ -13,7 +13,7 @@ namespace Cinemachine
         private CinemachineDollyCart1 cinemachinedollycart1;
 
         public Text ScoreText;
-        //public float Score;
+        private float Score;
         //private float pointsDecreasedPerSecond;
         public Text GameOver;
 

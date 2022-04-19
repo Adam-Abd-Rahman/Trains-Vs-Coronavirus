@@ -5,17 +5,21 @@ using UnityEngine.UI;
 
 public class CountdownTimer : MonoBehaviour
 {
-    public GameObject points;
+    //public GameObject points;
 
     [SerializeField] Text countdownText;
 
     private float Timerstarts;
     private float Second;
 
+    public Text ScoreText;
+    private float Score;
+    private float pointsDecreasedPerSecond;
+
     // Start is called before the first frame update
     void Start()
     {
-        Timerstarts = 5f;
+        Timerstarts = 50f;
         Second = 1.0f;
     }
 
@@ -27,7 +31,14 @@ public class CountdownTimer : MonoBehaviour
 
         if (Timerstarts <= 0) {
             Timerstarts = 0;
-            //points.SetActive(true);
+            TimerScore();
         }
+    }
+
+    // Update is called once per frame
+    public void TimerScore()
+    {
+        Score -= Second * Time.deltaTime;
+        ScoreText.text = Score.ToString("0"); 
     }
 }

@@ -8,10 +8,6 @@ public class CircuitBreaker : MonoBehaviour
     public Text CircuitBreakerText;
     public GameObject Brake;
     public GameObject Brakevisible;
-    public GameObject BrakeHold;
-    //public GameObject BrakeHoldvisible;
-    public GameObject BrakeNeutral;
-    //public GameObject BrakeNeutralvisible;
     public GameObject EmergencyBrake;
     public GameObject EmergencyBrakevisible;
     public GameObject Drivingmode;
@@ -26,10 +22,6 @@ public class CircuitBreaker : MonoBehaviour
         if (CircuitBreakercounter % 2 == 1)
         {
             CircuitBreakerText.text = "Circuit Breaker (on)";
-            BrakeHold.SetActive(true);
-            //BrakeHoldvisible.SetActive(false);
-            BrakeNeutral.SetActive(true);
-            //BrakeNeutralvisible.SetActive(false);
             EmergencyBrake.SetActive(true);
             EmergencyBrakevisible.SetActive(false);
             Brake.SetActive(true);
@@ -43,10 +35,6 @@ public class CircuitBreaker : MonoBehaviour
         else
         {
             CircuitBreakerText.text = "Circuit Breaker (off)";
-            BrakeHold.SetActive(false);
-            //BrakeHoldvisible.SetActive(true);
-            BrakeNeutral.SetActive(false);
-            //BrakeNeutralvisible.SetActive(true);
             EmergencyBrake.SetActive(false);
             EmergencyBrakevisible.SetActive(true);
             Brake.SetActive(false);

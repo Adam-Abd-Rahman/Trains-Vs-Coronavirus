@@ -6,10 +6,14 @@ using UnityEngine.UI;
 public class DrivingMode : MonoBehaviour
 {
     public Slider Drivingmode;
-    public GameObject Powerslider;    
-    public GameObject Powersliderselectedspeed;
-    public GameObject Powerslidervisible;
     public Text DrivingmodeText;
+
+    public GameObject Powerslider;
+    public GameObject Powerslidervisible;
+    public GameObject Powersliderselectedspeed;
+
+    public GameObject CountdownTimer;
+    
     public GameObject SpeedselectorControl;
     //public GameObject SpeedselectorControlvisible;
 
@@ -33,6 +37,7 @@ public class DrivingMode : MonoBehaviour
             Powerslider.SetActive(true);
             Powersliderselectedspeed.SetActive(false);
             Powerslidervisible.SetActive(false);
+            CountdownTimer.SetActive(true);
             //Debug.Log("Using Manual Control." + value);
         }
         else
@@ -43,6 +48,7 @@ public class DrivingMode : MonoBehaviour
             Powerslider.SetActive(false);
             Powersliderselectedspeed.SetActive(true);
             Powerslidervisible.SetActive(false);
+            CountdownTimer.SetActive(true);
             //Debug.Log("Using the speed selector." + value);
         }
     }

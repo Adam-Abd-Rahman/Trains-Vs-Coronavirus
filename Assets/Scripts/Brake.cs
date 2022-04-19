@@ -19,8 +19,6 @@ namespace Cinemachine
 
         AudioSource TGVbrakeAudio;
 
-        bool trainAudioTriggered;
-
         // Start is called before the first frame update
         void Start()
         {
@@ -50,11 +48,6 @@ namespace Cinemachine
         {
             if (brake.value == 2)
             {
-                if (!trainAudioTriggered)
-                {
-                    TGVsounds.tgvnoises.PlayTGVAudioBrake();
-                    trainAudioTriggered = true;
-                }
 
                 cinemachinedollycart.m_Speed = 5f;
                 cinemachinedollycart1.m_Speed = 5f;
@@ -63,11 +56,6 @@ namespace Cinemachine
             }
             else if (brake.value == 1)
             {
-                if (!trainAudioTriggered)
-                {
-                    TGVsounds.tgvnoises.PlayTGVAudioBrake();
-                    trainAudioTriggered = true;
-                }
 
                 cinemachinedollycart.m_Speed = 1f;
                 cinemachinedollycart1.m_Speed = 1f;
@@ -78,6 +66,8 @@ namespace Cinemachine
             {
                 cinemachinedollycart.m_Speed = 0f;
                 cinemachinedollycart1.m_Speed = 0f;
+
+                StopTGVAudioBrake();
             }
         }
 
@@ -97,6 +87,12 @@ namespace Cinemachine
         {
             TGVbrakeAudio.clip = TGVbrake;
             TGVbrakeAudio.Play();
+        }
+
+        public void StopTGVAudioBrake()
+        {
+            TGVbrakeAudio.clip = TGVbrake;
+            TGVbrakeAudio.Stop();
         }
     }
 }

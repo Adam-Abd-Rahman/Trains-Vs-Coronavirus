@@ -7,16 +7,17 @@ using UnityEngine.Serialization;
 namespace Cinemachine
 {
 
-    public class VACMASlider : MonoBehaviour
+    public class Crocodile : MonoBehaviour
     {
-        public GameObject VACMA;
+        public GameObject Crocodiletimer;
 
         public GameObject TGVtrain;
         private CinemachineDollyCart cinemachinedollycart;
         private CinemachineDollyCart1 cinemachinedollycart1;
 
-        public Slider VACMAslider;
-        public Text VACMAText;
+        public AudioClip Croc;
+
+        AudioSource TGVCrocAudio;
 
         // Start is called before the first frame update
         void Start()
@@ -24,21 +25,18 @@ namespace Cinemachine
             TGVtrain = GameObject.Find("TGV");
             cinemachinedollycart = TGVtrain.GetComponent<CinemachineDollyCart>();
             cinemachinedollycart1 = TGVtrain.GetComponent<CinemachineDollyCart1>();
+
+            TGVCrocAudio = GetComponent<AudioSource>();
         }
 
-        public void OnValueChanged(float value)
+        public void OnTriggerEnter(Collider other)
         {
-            if (value == 0)
+            TGVCrocAudio.clip = Croc;
+            TGVCrocAudio.Play();
+
+            if (cinemachinedollycart.m_Speed >= 10)
             {
-                VACMAText.text = "Off";
-                VACMA.SetActive(false);
-                //Debug.Log("VACMA is off");
-            }
-            else
-            {
-                VACMAText.text = "On";
-                VACMA.SetActive(true);
-                //Debug.Log("VACMA is on");
+                Crocodiletimer.SetActive(true);
             }
         }
     }

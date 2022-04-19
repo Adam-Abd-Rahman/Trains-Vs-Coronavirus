@@ -15,8 +15,6 @@ namespace Cinemachine
         private CinemachineDollyCart cinemachinedollycart;
         private CinemachineDollyCart1 cinemachinedollycart1;        
         public GameObject Brake;
-        public GameObject BrakeHold;
-        public GameObject BrakeNeutral;
         public GameObject EmergencyBrake;
         public GameObject Doorbutton;
         //public GameObject Doorbuttonvisible;
@@ -50,19 +48,15 @@ namespace Cinemachine
             {
 
                 Brake.SetActive(true);
-                BrakeHold.SetActive(true);
-                BrakeNeutral.SetActive(true);
                 EmergencyBrake.SetActive(true);
             }
             else if (Powerslider.value >= 1f && Powerslider.value < 10f)
             {
 
-                cinemachinedollycart.m_Speed = 10;
-                cinemachinedollycart1.m_Speed = 10;
+                cinemachinedollycart.m_Speed = 4;
+                cinemachinedollycart1.m_Speed = 4;
 
                 Brake.SetActive(true);
-                BrakeHold.SetActive(true);
-                BrakeNeutral.SetActive(true);
                 EmergencyBrake.SetActive(true);
 
                 PlayTGVAudioMoving(); 
@@ -70,12 +64,10 @@ namespace Cinemachine
             else if (Powerslider.value >= 10f && Powerslider.value < 20f)
             {
 
-                cinemachinedollycart.m_Speed = 20;
-                cinemachinedollycart1.m_Speed = 20;
+                cinemachinedollycart.m_Speed = 10;
+                cinemachinedollycart1.m_Speed = 10;
 
                 Brake.SetActive(true);
-                BrakeHold.SetActive(true);
-                BrakeNeutral.SetActive(true);
                 EmergencyBrake.SetActive(true);
 
                 PlayTGVAudioMoving();
@@ -87,8 +79,6 @@ namespace Cinemachine
                 cinemachinedollycart1.m_Speed = 20;
 
                 Brake.SetActive(true);
-                BrakeHold.SetActive(true);
-                BrakeNeutral.SetActive(true);
                 EmergencyBrake.SetActive(true);
 
                 PlayTGVAudioMoving();
@@ -100,8 +90,6 @@ namespace Cinemachine
                 cinemachinedollycart1.m_Speed = 50;
 
                 Brake.SetActive(true);
-                BrakeHold.SetActive(true);
-                BrakeNeutral.SetActive(true);
                 EmergencyBrake.SetActive(true);
 
                 PlayTGVAudioMoving();
@@ -112,8 +100,6 @@ namespace Cinemachine
                 cinemachinedollycart1.m_Speed = 100;
     
                 Brake.SetActive(true);
-                BrakeHold.SetActive(true);
-                BrakeNeutral.SetActive(true);
                 EmergencyBrake.SetActive(true);
 
                 PlayTGVAudioMoving();
