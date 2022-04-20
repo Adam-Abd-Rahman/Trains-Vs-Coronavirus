@@ -34,7 +34,7 @@ namespace Cinemachine
             TGVCrocAudio.clip = Croc;
             TGVCrocAudio.Play();
 
-            if (cinemachinedollycart.m_Speed >= 10)
+            if (cinemachinedollycart.m_Speed >= 1)
             {
                 Crocodiletimer.SetActive(true);
             }

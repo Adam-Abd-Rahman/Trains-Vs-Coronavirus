@@ -12,25 +12,14 @@ public class PantographControl : MonoBehaviour
     //public GameObject CircuitBreakervisible;
     public GameObject Horn;
     //public GameObject Hornvisible;
-    public GameObject Pantographpanel;
-    public VideoClip[] Pantographvideos;
-    public VideoPlayer PantographVideoplayer;
-    private int PantographvideoClipIndex;
 
     AudioSource Pantographaudiosource;
     public AudioClip Pantographsound;
-
-    //Awake is called before Start
-    private void Awake()
-    {
-        //PantographVideoplayer = Pantographpanel.GetComponent<VideoPlayer>();
-    }
 
     // Start is called before the first frame update
     void Start()
     {
         Pantographaudiosource = GetComponentInChildren<AudioSource>();
-        //PantographVideoplayer.clip = Pantographvideos[0];
     }
 
     public void WhenPantographControlIsActive(float value)
@@ -53,19 +42,8 @@ public class PantographControl : MonoBehaviour
             //Hornvisible.SetActive(false);
             //Debug.Log("Pantograph has raised." + value);
         }
-    
-        //PantographvideoClipIndex++;
-        //if (PantographvideoClipIndex % 2 == 1)
-        //{
-            //PantographVideoplayer.clip = Pantographvideos[0];
-        //}
-        //else
-        //{
-            //PantographVideoplayer.clip = Pantographvideos[1];
-        //}
 
         PlayPantographSound();
-        //PantographVideoplayer.Play();
     }
 
     public void PlayPantographSound()

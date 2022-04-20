@@ -19,7 +19,7 @@ namespace Cinemachine
 
         public Slider brakeslider;
 
-        bool CancelTimer = false;
+        public bool ActivateTimer;
 
         // Start is called before the first frame update
         void Start()
@@ -33,21 +33,25 @@ namespace Cinemachine
         // Update is called once per frame
         void Update()
         {
-            VACMAandCrocodiletimer.text = fiveminutetimer.ToString("0");
-            fiveminutetimer -= TimeDecreasedBySecond * Time.deltaTime;
-
-            if (fiveminutetimer <= 0)
+            if (ActivateTimer == true)
             {
-               brakeslider.value = 0;
-               fiveminutetimer = 0;
-
-                ScoreByVACMAandCrocodile.SetScoreText(zeropoints);
+                Timer();
             }
         }
 
-        public void ButtonClicked()
+        public void Timer()
         {
-            CancelTimer = true; 
+            if (ActivateTimer == true)
+            {
+                fiveminutetimer -= TimeDecreasedBySecond * Time.deltaTime;
+                VACMAandCrocodiletimer.text = fiveminutetimer.ToString("0");
+                if (fiveminutetimer <= 0)
+                {
+                    brakeslider.value = 0;
+                    fiveminutetimer = 0;
+                    ScoreByVACMAandCrocodile.SetScoreText(zeropoints);
+                }
+            }
         }
     }
 }

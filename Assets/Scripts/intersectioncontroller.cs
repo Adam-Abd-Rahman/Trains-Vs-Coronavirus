@@ -11,21 +11,31 @@ namespace Cinemachine
         public GameObject TGVtrain;
         public CinemachineDollyCart path;
         public CinemachineDollyCart1 path1;
+
         public Distancechecker distancescore;
         public Distancechecker1 distancescore1;
+
         public Slider intersectionslider;
+
+        public GameObject CountdownTimer;
+        CountdownTimer timerreset;
+        [SerializeField] GameObject timer;
 
         // Start is called before the first frame update
         void Start()
         {
             path = TGVtrain.GetComponent<CinemachineDollyCart>();
             path1 = TGVtrain.GetComponent<CinemachineDollyCart1>();
+
             distancescore = TGVtrain.GetComponent<Distancechecker>();
             distancescore1 = TGVtrain.GetComponent<Distancechecker1>();
+
             ChangeDestination(0);
             intersectionslider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+
+            timerreset = timer.GetComponent<CountdownTimer>();
         }
-       
+
         public void ChangeDestination(int part)
         {
             //Debug.Log(part);
@@ -42,6 +52,8 @@ namespace Cinemachine
                 path1.enabled = true;
                 distancescore.enabled = false;
                 distancescore1.enabled = true;
+                CountdownTimer.SetActive(true);
+                timerreset.Timerstarts = 50f;
             }
         }
 

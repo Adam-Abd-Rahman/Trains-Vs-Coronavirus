@@ -9,7 +9,7 @@ namespace Cinemachine
 
     public class TVM : MonoBehaviour
     {
-        private float increasescore = 100f;//1,559
+        private float increasescore = 1559f;
         private float decreasescore = 1f;
 
         public GameObject TVMtext;
@@ -36,11 +36,13 @@ namespace Cinemachine
 
             if (cinemachinedollycart.m_Speed <= 5)
             {
-                ScoreByTVM.SetScoreText(increasescore);
+                ScoreByTVM.SetScoreText(increasescore); 
+                TVMtext.GetComponent<Text>().text = "10kmph";
             }
             else if (cinemachinedollycart.m_Speed > 5 && cinemachinedollycart.m_Speed < 10)
             {
                 ScoreByTVM.SetScoreText(increasescore);
+                TVMtext.GetComponent<Text>().text = "Stay below 10 kmph";
             }
             else
             {
@@ -50,16 +52,21 @@ namespace Cinemachine
             if (cinemachinedollycart1.m_Speed <= 5)
             {
                 ScoreByTVM.SetScoreText(increasescore);
+                TVMtext.GetComponent<Text>().text = "10kmph";
             }
             else if (cinemachinedollycart1.m_Speed > 5 && cinemachinedollycart1.m_Speed < 10)
             {
                 ScoreByTVM.SetScoreText(increasescore);
+                TVMtext.GetComponent<Text>().text = "Stay below 10 kmph";
             }
             else
             {
                 ScoreByTVM.SetScoreText(decreasescore);
             }
+        }
 
+        private void OnTriggerExit(Collider other)
+        {
             TVMtext.GetComponent<Text>().text = "";
         }
     }

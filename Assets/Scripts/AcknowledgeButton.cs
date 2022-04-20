@@ -2,22 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Serialization;
 
-public class AcknowledgeButton : MonoBehaviour
+namespace Cinemachine
 {
-    public Text VACMAandCrocodiletimer;
 
-    // Start is called before the first frame update
-    void Start()
+    public class AcknowledgeButton : MonoBehaviour
     {
-        //Score = 5f;
-        //pointsDecreasedPerSecond = 1.0f;
-        //VACMAandCrocodiletimer.text = a;
-    }
+        TimerByVACMAandCrocodile TimerOfVACMAandCroc;
+        [SerializeField] GameObject timer;
 
-    public void ButtonClicked()
-    {
-        //VACMAandCrocodiletimer.Enabled = true;
-        //Debug.Log("Button Clicked!");
+        // Start is called before the first frame update
+        void Start()
+        {
+            TimerOfVACMAandCroc = timer.GetComponent<TimerByVACMAandCrocodile>();
+        }
+
+        public void ButtonClicked()
+        {
+            TimerOfVACMAandCroc.ActivateTimer = false;
+            TimerOfVACMAandCroc.VACMAandCrocodiletimer.text = "";
+        }
     }
 }
