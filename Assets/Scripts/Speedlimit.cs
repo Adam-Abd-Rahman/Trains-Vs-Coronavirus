@@ -9,8 +9,8 @@ namespace Cinemachine
 
     public class Speedlimit : MonoBehaviour
     {
-        private float plusscore = 1029f;
-        private float minusscore = 1f;
+        public float plusscore = 1029f;
+        public float minusscore = 1f;
 
         public GameObject KVBtext;
 

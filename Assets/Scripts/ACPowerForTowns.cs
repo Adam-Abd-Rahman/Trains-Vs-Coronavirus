@@ -7,13 +7,12 @@ using UnityEngine.Serialization;
 namespace Cinemachine
 {
 
-    public class ACPower : MonoBehaviour
+    public class ACPowerForTowns : MonoBehaviour
     {
-        private float success = 1529f; 
+        private float success = 2029f;
         private float error = 0f; 
 
         public Slider Pantographmode;
-        //public Text PantographModeText;
 
         public GameObject drivingpanel;
         private GameScore ScoreByPower;
@@ -29,7 +28,10 @@ namespace Cinemachine
             if (Pantographmode.value > 0)
             {
                 ScoreByPower.SetScoreText(error);
-                //Debug.Log("fail.");
+            }
+            else
+            {
+                ScoreByPower.SetScoreText(success);
             }
         }
     }

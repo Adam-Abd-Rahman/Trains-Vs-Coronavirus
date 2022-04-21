@@ -7,9 +7,8 @@ using UnityEngine.Serialization;
 namespace Cinemachine
 {
 
-    public class LGVPower : MonoBehaviour
+    public class ACPowerForParis : MonoBehaviour
     {
-        private float success = 1529f; 
         private float error = 0f; 
 
         public Slider Pantographmode;
@@ -25,11 +24,7 @@ namespace Cinemachine
 
         private void OnTriggerStay(Collider other)
         {
-            if (Pantographmode.value == 2)
-            {
-                ScoreByPower.SetScoreText(success);
-            }
-            else
+            if (Pantographmode.value > 0)
             {
                 ScoreByPower.SetScoreText(error);
             }

@@ -11,24 +11,22 @@ namespace Cinemachine
     {
         [SerializeField] Text countdownText;
 
-        public float Score;
         public float Timerstarts;
         private float Second;
+        private float Score;
+
+        public Text ScoreText;
         public Text GameOver;
-        //public Text ScoreText;
 
         GameScore Scoring;
         [SerializeField] GameObject gamescoretimer;
-
-        Speedlimit speedlimit;
-        [SerializeField] GameObject TimerScoreBySpeedLimit;
 
         // Start is called before the first frame update
         void Start()
         {
             Timerstarts = 50f;
             Second = 1f;
-            Score = 5f;
+            Score = 100f;
 
             Scoring = gamescoretimer.GetComponent<GameScore>();
 
@@ -46,20 +44,21 @@ namespace Cinemachine
                 Timerstarts = 0;
                 TimerScore();
             }
+
         }
 
         // 
         public void TimerScore()
         {
             Score -= Second* Time.deltaTime;
-            Scoring.ScoreText.text = "Game Score: " + (int)Score;
+            ScoreText.text = "Game Score: " + (int)Score;
+            Scoring.ScoreText.text = "";
 
             if (Score <= 0)
             {
                 Score = 0;
                 GameOver.text = "Game Over!!!";
             }
-            //Debug.Log(Score);
         }
     }
 }

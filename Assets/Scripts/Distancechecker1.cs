@@ -19,8 +19,8 @@ namespace Cinemachine
         // Calculated distance value
         private float distance;
 
-        private float plusscore = 499f;
-        private float pluscorefor0meters = 699f;
+        private float plusscore = 2528f;
+        private float pluscorefor0meters = 2728f;
 
         CinemachineDollyCart1 cinemachinedollycart1;
 

@@ -11,9 +11,11 @@ namespace Cinemachine
         public GameObject TGVtrain;
         private CinemachineDollyCart cinemachinedollycart;
         private CinemachineDollyCart1 cinemachinedollycart1;
-
+        
         public Text ScoreText;
         public Text GameOver;
+
+        public GameObject CountdownTimer;
 
         // Start is called before the first frame update
         void Start()
@@ -32,6 +34,9 @@ namespace Cinemachine
             if (Score == 0)
             {
                 GameOver.text = "Game Over!!!";
+                cinemachinedollycart.m_Speed = 0;
+                cinemachinedollycart1.m_Speed = 0;
+                CountdownTimer.SetActive(false);
             }
         }
 

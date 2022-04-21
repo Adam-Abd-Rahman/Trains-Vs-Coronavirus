@@ -19,6 +19,8 @@ namespace Cinemachine
 
         public Slider brakeslider;
 
+        public GameObject CountdownTimer;
+
         public bool ActivateTimer;
 
         // Start is called before the first frame update
@@ -50,6 +52,7 @@ namespace Cinemachine
                     brakeslider.value = 0;
                     fiveminutetimer = 0;
                     ScoreByVACMAandCrocodile.SetScoreText(zeropoints);
+                    CountdownTimer.SetActive(false);
                 }
             }
         }

@@ -10,6 +10,7 @@ namespace Cinemachine
     public class EmergencyBrake : MonoBehaviour
     {
         private float zeroscore = 0f;
+        public GameObject CountdownTimer;
 
         public Text EmergencyBraketext;
         private int EmergencyBrakecounter = 0;
@@ -41,7 +42,8 @@ namespace Cinemachine
         public void ButtonClicked()
         {
             EmergencyBrakeScore.SetScoreText(zeroscore);
-        
+            CountdownTimer.SetActive(false);
+
             if (brakeslider.value == 3)
             {
                 brakeslider.value = 3;

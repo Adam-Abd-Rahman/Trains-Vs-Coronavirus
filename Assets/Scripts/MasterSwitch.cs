@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class MasterSwitch : MonoBehaviour
 {
     public GameObject Pantographcontrol;
-    //public GameObject Pantographcontrolvisible;
+    public GameObject Pantographcontrolvisible;
     public GameObject Pantographmode;
-    //public GameObject Pantographmodevisible;
+    public GameObject Pantographmodevisible;
     public Text MasterSwitchtext;
     private int masterswitchcounter = 0;
 

@@ -8,8 +8,6 @@ namespace Cinemachine
 {
     public class PantographMode : MonoBehaviour
     {
-        private float error = 0f;
-
         public Slider Pantographmode;
         public Text PantographModeText;
 
