@@ -21,7 +21,6 @@ public class CrocodileSlider : MonoBehaviour
         {
             CrocodileText.text = "On";
             Crocodile.SetActive(true);
-            //Debug.Log("Crocodile is on");
         }
     }
 }

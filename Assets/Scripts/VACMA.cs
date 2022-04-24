@@ -10,31 +10,53 @@ namespace Cinemachine
     {
         public GameObject VACMAtimer;
 
-        public GameObject TGVtrain;
-        private CinemachineDollyCart cinemachinedollycart;
-        private CinemachineDollyCart1 cinemachinedollycart1;
+        public GameObject TGVEngine1;
+        private CinemachineDollyCart PathForEngine1;
+        private CinemachineDollyCart1 Path1ForEngine1;
+        private CinemachineDollyCart2 Path2ForEngine1;
+        private CinemachineDollyCart3 Path3ForEngine1;
+        private CinemachineDollyCart4 Path4ForEngine1;
 
         // Start is called before the first frame update
         void Start()
         {
-            TGVtrain = GameObject.Find("TGV");
-            cinemachinedollycart = TGVtrain.GetComponent<CinemachineDollyCart>();
-            cinemachinedollycart1 = TGVtrain.GetComponent<CinemachineDollyCart1>();
+            TGVEngine1 = GameObject.Find("TGV");
+            PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart>();
+            Path1ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart1>();
+            Path2ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart2>();
+            Path3ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart3>();
+            Path4ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart4>();
         }
 
         // Update is called once per frame
         void Update()
         { 
 
-            if (cinemachinedollycart.m_Speed >= 8)
+            if (PathForEngine1.m_Speed >= 8)
             {
                 VACMAtimer.SetActive(true); 
             }
 
-            if (cinemachinedollycart1.m_Speed >= 8)
+            if (Path1ForEngine1.m_Speed >= 8)
             {
                 VACMAtimer.SetActive(true);
             }
-       }
+
+            if (Path2ForEngine1.m_Speed >= 8)
+            {
+                VACMAtimer.SetActive(true);
+            }
+
+            if (Path3ForEngine1.m_Speed >= 8)
+            {
+                VACMAtimer.SetActive(true);
+            }
+
+            if (Path4ForEngine1.m_Speed >= 8)
+            {
+                VACMAtimer.SetActive(true);
+            }
+            
+        }
     }
 }

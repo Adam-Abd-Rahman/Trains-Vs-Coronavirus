@@ -10,12 +10,11 @@ public class DrivingMode : MonoBehaviour
 
     public GameObject Powerslider;
     public GameObject Powerslidervisible;
-    public GameObject Powersliderselectedspeed;
 
     public GameObject CountdownTimer;
-    
+
     public GameObject SpeedselectorControl;
-    //public GameObject SpeedselectorControlvisible;
+    public GameObject SpeedselectorControlvisible;
 
     public void WhenDrivingModeIsActive(float value)
     {
@@ -25,7 +24,6 @@ public class DrivingMode : MonoBehaviour
             SpeedselectorControl.SetActive(false);
             //SpeedselectorControlvisible.SetActive(true);
             Powerslider.SetActive(false);
-            Powersliderselectedspeed.SetActive(false);
             Powerslidervisible.SetActive(true);
             //Debug.Log("Driving mode is off." + value);
         }
@@ -35,7 +33,6 @@ public class DrivingMode : MonoBehaviour
             SpeedselectorControl.SetActive(false);
             //SpeedselectorControlvisible.SetActive(true);
             Powerslider.SetActive(true);
-            Powersliderselectedspeed.SetActive(false);
             Powerslidervisible.SetActive(false);
             CountdownTimer.SetActive(true);
             //Debug.Log("Using Manual Control." + value);
@@ -45,11 +42,10 @@ public class DrivingMode : MonoBehaviour
             DrivingmodeText.text = "Selected speed control";
             SpeedselectorControl.SetActive(true);
             //SpeedselectorControlvisible.SetActive(false);
-            Powerslider.SetActive(false);
-            Powersliderselectedspeed.SetActive(true);
+            Powerslider.SetActive(true);
             Powerslidervisible.SetActive(false);
             CountdownTimer.SetActive(true);
             //Debug.Log("Using the speed selector." + value);
         }
-    }
+    }    
 }

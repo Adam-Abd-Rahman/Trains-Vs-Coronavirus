@@ -7,43 +7,31 @@ using UnityEngine.Serialization;
 namespace Cinemachine
 {
 
-    public class Speedlimit : MonoBehaviour
+    public class SpeedlimitAtDepot : MonoBehaviour
     {
         public float plusscore = 1029f;
-        public float minusscore = 1f;
+        public float minusscore = 1024f;
 
         public GameObject KVBtext;
 
-        public GameObject TGVtrain;
-        private CinemachineDollyCart cinemachinedollycart;
-        private CinemachineDollyCart1 cinemachinedollycart1;
-    
+        public GameObject TGVEngine1;
+        private CinemachineDollyCart PathForEngine1;
+
         public GameObject drivingpanel;
         private GameScore ScoreBySpeedLimit;
 
         // Start is called before the first frame update
         void Start()
         {
-            TGVtrain = GameObject.Find("TGV");
-            cinemachinedollycart = TGVtrain.GetComponent<CinemachineDollyCart>();
-            cinemachinedollycart1 = TGVtrain.GetComponent<CinemachineDollyCart1>();
-    
+            TGVEngine1 = GameObject.Find("TGV");
+            PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart>();
+            
             ScoreBySpeedLimit = drivingpanel.GetComponent<GameScore>();
         }
     
         private void OnTriggerStay(Collider other)
         {
-
-            if (cinemachinedollycart.m_Speed <= 5)
-            {
-                ScoreBySpeedLimit.SetScoreText(plusscore);
-            }
-            else
-            {
-                ScoreBySpeedLimit.SetScoreText(minusscore);
-            }
-    
-            if (cinemachinedollycart1.m_Speed <= 5)
+            if (PathForEngine1.m_Speed <= 5)
             {
                 ScoreBySpeedLimit.SetScoreText(plusscore);
             }

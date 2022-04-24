@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 namespace Cinemachine
 {
 
-    public class TVM : MonoBehaviour
+    public class TVM2 : MonoBehaviour
     {
         private float increasescore = 1559f;
         private float decreasescore = 0f;
@@ -15,8 +15,7 @@ namespace Cinemachine
         public Text TVMtext;
 
         public GameObject TGVEngine1;
-        private CinemachineDollyCart PathForEngine1;
-        private CinemachineDollyCart1 Path1ForEngine1;
+        private CinemachineDollyCart4 Path4ForEngine1;
 
         public GameObject drivingpanel;
         private GameScore ScoreByTVM;
@@ -27,8 +26,7 @@ namespace Cinemachine
         void Start()
         {
             TGVEngine1 = GameObject.Find("TGV");
-            PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart>();
-            Path1ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart1>(); 
+            Path4ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart4>();
 
             ScoreByTVM = drivingpanel.GetComponent<GameScore>();
 
@@ -38,33 +36,17 @@ namespace Cinemachine
         private void OnTriggerStay(Collider other)
         {
 
-            if (PathForEngine1.m_Speed <= 5)
+            if (Path4ForEngine1.m_Speed <= 5)
             {
-                ScoreByTVM.SetScoreText(increasescore); 
+                ScoreByTVM.SetScoreText(increasescore);
                 TVMtext.text = "10kmph";
+                Debug.Log("220 mph");
             }
-            else if (PathForEngine1.m_Speed > 5 && PathForEngine1.m_Speed < 10)
+            else if (Path4ForEngine1.m_Speed > 5 && Path4ForEngine1.m_Speed < 10)
             {
                 ScoreByTVM.SetScoreText(increasescore);
                 TVMtext.text = "Stay below 10 kmph";
-            }
-            else
-            {
-                ScoreByTVM.SetScoreText(decreasescore);
-                brakeslider.value = 0;
-            }
-
-            if (Path1ForEngine1.m_Speed <= 5)
-            {
-                //ScoreByTVM.SetScoreText(increasescore);
-                //TVMtext.text = "10kmph";
-                Debug.Log("10kmph");
-            }
-            else if (Path1ForEngine1.m_Speed > 5 && Path1ForEngine1.m_Speed < 10)
-            {
-                //ScoreByTVM.SetScoreText(increasescore);
-                //TVMtext.text = "Stay below 10 kmph";
-                Debug.Log("Stay below 10 kmph");
+                Debug.Log("Stay below 220 mph");
             }
             else
             {

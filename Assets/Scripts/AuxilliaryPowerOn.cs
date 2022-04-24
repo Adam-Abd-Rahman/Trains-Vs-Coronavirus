@@ -14,12 +14,12 @@ public class AuxilliaryPowerOn : MonoBehaviour
         if (onoffSwitch)
         {
             MasterSwitch.SetActive(true);
-            MasterSwitchvisible.SetActive(false);
+            //MasterSwitchvisible.SetActive(false);
             //Debug.Log("Master Switch is on");
         }
         else {
             MasterSwitch.SetActive(false);
-            MasterSwitchvisible.SetActive(true);
+            //MasterSwitchvisible.SetActive(true);
             //Debug.Log("Master Switch is off");
         }
     }

@@ -7,13 +7,15 @@ public class CircuitBreaker : MonoBehaviour
 {
     public Text CircuitBreakerText;
     public GameObject Brake;
+    public GameObject Brakevalue;
     public GameObject Brakevisible;
+    public GameObject Brakevaluevisible;
     public GameObject EmergencyBrake;
     public GameObject EmergencyBrakevisible;
     public GameObject Drivingmode;
-    //public GameObject Drivingmodevisible;
+    public GameObject Drivingmodevisible;
     public GameObject Doorbutton;
-    //public GameObject Doorbuttonvisible;
+    public GameObject Doorbuttonvisible;
     private int CircuitBreakercounter = 0; 
 
     public void WhenCircuitBreakerIsActive()
@@ -25,7 +27,9 @@ public class CircuitBreaker : MonoBehaviour
             EmergencyBrake.SetActive(true);
             EmergencyBrakevisible.SetActive(false);
             Brake.SetActive(true);
-            Brakevisible.SetActive(false);
+            Brakevalue.SetActive(true);
+            Brakevisible.SetActive(false);            
+            Brakevaluevisible.SetActive(false);
             Drivingmode.SetActive(true);
             //Drivingmodevisible.SetActive(false);
             Doorbutton.SetActive(true);
@@ -38,7 +42,9 @@ public class CircuitBreaker : MonoBehaviour
             EmergencyBrake.SetActive(false);
             EmergencyBrakevisible.SetActive(true);
             Brake.SetActive(false);
-            Brakevisible.SetActive(true);
+            Brakevalue.SetActive(true);
+            Brakevisible.SetActive(false);
+            Brakevaluevisible.SetActive(true);
             Drivingmode.SetActive(false);
             //Drivingmodevisible.SetActive(true);
             Doorbutton.SetActive(false);

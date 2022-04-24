@@ -18,8 +18,7 @@ namespace Cinemachine
         public Text ScoreText;
         public Text GameOver;
 
-        GameScore Scoring;
-        [SerializeField] GameObject gamescoretimer;
+        public Text ScoringScoreText;
 
         // Start is called before the first frame update
         void Start()
@@ -27,8 +26,6 @@ namespace Cinemachine
             Timerstarts = 50f;
             Second = 1f;
             Score = 100f;
-
-            Scoring = gamescoretimer.GetComponent<GameScore>();
 
             GameOver.text = "";
         }
@@ -52,7 +49,7 @@ namespace Cinemachine
         {
             Score -= Second* Time.deltaTime;
             ScoreText.text = "Game Score: " + (int)Score;
-            Scoring.ScoreText.text = "";
+            ScoringScoreText.text = "";
 
             if (Score <= 0)
             {

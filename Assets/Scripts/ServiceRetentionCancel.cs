@@ -16,13 +16,13 @@ public class ServiceRetentionCancel : MonoBehaviour
         if (counter % 2 == 1){
             ServiceRetentionCanceltext.text = "Service Retention Cancel (on)";
             AuxillaryPowerOn.SetActive(false);
-            AuxillaryPowerOnvisible.SetActive(true);
+            //AuxillaryPowerOnvisible.SetActive(true);
             //Debug.Log("Service Retention Cancel is disable." + counter);
         }
         else{
             ServiceRetentionCanceltext.text = "Service Retention Cancel (off)";
             AuxillaryPowerOn.SetActive(true);
-            AuxillaryPowerOnvisible.SetActive(false);
+            //AuxillaryPowerOnvisible.SetActive(false);
             //Debug.Log("Service Retention Cancel is able." + counter);
         }
     }

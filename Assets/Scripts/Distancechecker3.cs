@@ -5,13 +5,13 @@ using UnityEngine.Serialization;
 namespace Cinemachine
 {
 
-    public class Distancechecker : MonoBehaviour
+    public class Distancechecker3 : MonoBehaviour
     {
 
         // Reference to checkpoint position
         [SerializeField]
         private Transform checkpoint;
-    
+
         // Reference to UI text that shows the distance value
         [SerializeField]
         private Text distanceText;
@@ -22,7 +22,7 @@ namespace Cinemachine
         private float plusscore = 2528f;
         private float pluscorefor0meters = 2728f;
 
-        CinemachineDollyCart cinemachinedollycart;
+        CinemachineDollyCart1 cinemachinedollycart1;
 
         public GameObject drivingpanel;
         private GameScore ScoreByDistance;
@@ -30,8 +30,8 @@ namespace Cinemachine
         // Start is called before the first frame update
         void Start()
         {
-            cinemachinedollycart = GetComponent<CinemachineDollyCart>();
-        
+            cinemachinedollycart1 = GetComponent<CinemachineDollyCart1>();
+
             ScoreByDistance = drivingpanel.GetComponent<GameScore>();
         }
 
@@ -48,14 +48,14 @@ namespace Cinemachine
             // distance.ToString("F2") will show 12.23 in this case
             distanceText.text = "Distance: " + distance.ToString("F1") + " meters";
 
-            if (cinemachinedollycart.m_Position > 74.182f && cinemachinedollycart.m_Position < 75.1f)
+            if (cinemachinedollycart1.m_Position > 74.3f && cinemachinedollycart1.m_Position < 75.1f)
             {
-            ScoreByDistance.SetScoreText(plusscore);
+                ScoreByDistance.SetScoreText(plusscore);
             }
 
-            if (cinemachinedollycart.m_Position == 75.2f)
+            if (cinemachinedollycart1.m_Position == 75.2f)
             {
-            ScoreByDistance.SetScoreText(pluscorefor0meters);
+                ScoreByDistance.SetScoreText(pluscorefor0meters);
             }
         }
 

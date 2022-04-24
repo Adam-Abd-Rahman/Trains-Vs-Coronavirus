@@ -27,27 +27,31 @@ public class MasterSwitch : MonoBehaviour
         if (masterswitchcounter % 2 == 1)
         {
             MasterSwitchtext.text = "Master Switch (off)";
-            //MasterSwitchsound.Stop();
         }
         else
         {
             MasterSwitchtext.text = "Master Switch (on)";
-            //MasterSwitchsound.Play();
         }
     }
 
     public void WhenMasterSwitchIsActive()
     {
-        if (Pantographcontrol != null)
+        masterswitchcounter++;
+        if (masterswitchcounter % 2 == 1)
         {
-            bool isActive = Pantographcontrol.activeSelf;
-            Pantographcontrol.SetActive(!isActive);
+            Pantographcontrol.SetActive(false);
+            //Pantographcontrolvisible.SetActive(true);
+            Pantographmode.SetActive(false);
+            //Pantographmodevisible.SetActive(true);
         }
-
-        if (Pantographmode != null)
+        else
         {
-            bool isActive = Pantographmode.activeSelf;
-            Pantographmode.SetActive(!isActive);
+            MasterSwitchtext.text = "Master Switch (on)";
+            Pantographcontrol.SetActive(true);
+            //Pantographcontrolvisible.SetActive(false);
+            Pantographmode.SetActive(true);
+            //Pantographmodevisible.SetActive(false);
+
         }
 
     }

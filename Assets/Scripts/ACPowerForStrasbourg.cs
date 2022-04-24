@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 namespace Cinemachine
 {
 
-    public class ACPowerForTowns : MonoBehaviour
+    public class ACPowerForStrasbourg : MonoBehaviour
     {
         private float success = 2029f;
         private float error = 0f; 
