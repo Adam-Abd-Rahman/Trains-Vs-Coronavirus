@@ -180,6 +180,9 @@ namespace Cinemachine
 
                 intersectionslidervalue.text = "To Strasbourg";
 
+                CountdownTimer.SetActive(true);
+                timerreset.Timerstarts = 50f;
+
             }
             else if (part == 2)
             {
@@ -220,6 +223,9 @@ namespace Cinemachine
 
                 intersectionslidervalue.text = "To Bordeaux";
 
+                CountdownTimer.SetActive(true);
+                timerreset.Timerstarts = 50f;
+
             }
             else if (part == 3)
             {
@@ -259,6 +265,9 @@ namespace Cinemachine
                 distancescore3.enabled = false; //Deactivate distance checker script for Brest.
 
                 intersectionslidervalue.text = "To Paris from Bordeaux";
+
+                CountdownTimer.SetActive(true);
+                timerreset.Timerstarts = 50f;
 
             }
             else

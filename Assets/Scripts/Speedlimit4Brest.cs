@@ -9,8 +9,8 @@ namespace Cinemachine
 
     public class Speedlimit4Brest : MonoBehaviour
     {
-        public float plusscore = 1029f;
-        public float minusscore = 1024f;
+        private float plusscore = 5244f;
+        private float minusscore = 4700f;
 
         public GameObject KVBtext;
 
@@ -23,7 +23,7 @@ namespace Cinemachine
         // Start is called before the first frame update
         void Start()
         {
-            TGVEngine1 = GameObject.Find("TGV");
+            TGVEngine1 = GameObject.Find("Engine_1");
             Path4ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart4>();
             
             ScoreBySpeedLimit = drivingpanel.GetComponent<GameScore>();

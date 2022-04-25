@@ -56,35 +56,35 @@ namespace Cinemachine
                 SpeedSelectorvalue.text = v.ToString("0");
             });
 
-            TGVEngine1 = GameObject.Find("TGV");
+            TGVEngine1 = GameObject.Find("Engine_1");
             PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart>();
             Path1ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart1>();
             Path2ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart2>();
             Path3ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart3>();
             Path4ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart4>();
 
-            TGVCarriage1 = GameObject.Find("TGV (1)");
+            TGVCarriage1 = GameObject.Find("Carriage_1");
             PathForCarriage1 = TGVCarriage1.GetComponent<CinemachineDollyCart>();
             Path1ForCarriage1 = TGVCarriage1.GetComponent<CinemachineDollyCart1>();
             Path2ForCarriage1 = TGVCarriage1.GetComponent<CinemachineDollyCart2>();
             Path3ForCarriage1 = TGVCarriage1.GetComponent<CinemachineDollyCart3>();
             Path4ForCarriage1 = TGVCarriage1.GetComponent<CinemachineDollyCart4>();
 
-            TGVMiddleCarriage = GameObject.Find("TGV (2)");
+            TGVMiddleCarriage = GameObject.Find("Middle_Carriage");
             PathForMiddleCarriage = TGVMiddleCarriage.GetComponent<CinemachineDollyCart>();
             Path1ForMiddleCarriage = TGVMiddleCarriage.GetComponent<CinemachineDollyCart1>();
             Path2ForMiddleCarriage = TGVMiddleCarriage.GetComponent<CinemachineDollyCart2>();
             Path3ForMiddleCarriage = TGVMiddleCarriage.GetComponent<CinemachineDollyCart3>();
             Path4ForMiddleCarriage = TGVMiddleCarriage.GetComponent<CinemachineDollyCart4>();
 
-            TGVCarriage2 = GameObject.Find("TGV (3)");
+            TGVCarriage2 = GameObject.Find("Carriage_2");
             PathForCarriage2 = TGVCarriage2.GetComponent<CinemachineDollyCart>();
             Path1ForCarriage2 = TGVCarriage2.GetComponent<CinemachineDollyCart1>();
             Path2ForCarriage2 = TGVCarriage2.GetComponent<CinemachineDollyCart2>();
             Path3ForCarriage2 = TGVCarriage2.GetComponent<CinemachineDollyCart3>();
             Path4ForCarriage2 = TGVCarriage2.GetComponent<CinemachineDollyCart4>();
 
-            TGVEngine2 = GameObject.Find("TGV (4)");
+            TGVEngine2 = GameObject.Find("Engine_2");
             PathForEngine2 = TGVEngine2.GetComponent<CinemachineDollyCart>();
             Path1ForEngine2 = TGVEngine2.GetComponent<CinemachineDollyCart1>();
             Path2ForEngine2 = TGVEngine2.GetComponent<CinemachineDollyCart2>();

@@ -25,7 +25,7 @@ namespace Cinemachine
         {
             Timerstarts = 50f;
             Second = 1f;
-            Score = 100f;
+            Score = 1029f;
 
             GameOver.text = "";
         }

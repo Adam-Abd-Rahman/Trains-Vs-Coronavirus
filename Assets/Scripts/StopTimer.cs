@@ -17,7 +17,7 @@ namespace Cinemachine
         // Start is called before the first frame update
         void Start()
         {
-            TGVtrain = GameObject.Find("TGV");
+            TGVtrain = GameObject.Find("Engine_1");
             cinemachinedollycart = TGVtrain.GetComponent<CinemachineDollyCart>();            
         }
 

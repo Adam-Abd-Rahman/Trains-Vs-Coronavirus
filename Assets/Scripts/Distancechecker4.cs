@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 namespace Cinemachine
 {
 
-    public class Distancechecker1 : MonoBehaviour
+    public class Distancechecker4 : MonoBehaviour
     {
 
         // Reference to checkpoint position
@@ -19,8 +19,8 @@ namespace Cinemachine
         // Calculated distance value
         private float distance;
 
-        private float plusscore = 3257f;
-        private float pluscorefor0meters = 3457f;
+        private float plusscore = 5743f;
+        private float pluscorefor0meters = 6242f;
 
         CinemachineDollyCart1 cinemachinedollycart1;
 

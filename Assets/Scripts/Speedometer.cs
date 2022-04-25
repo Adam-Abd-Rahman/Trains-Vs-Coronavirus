@@ -7,10 +7,8 @@ using UnityEngine.Serialization;
 namespace Cinemachine
 {
 
-    public class Crocodile : MonoBehaviour
+    public class Speedometer : MonoBehaviour
     {
-        public GameObject Crocodiletimer;
-
         public GameObject TGVEngine1;
         private CinemachineDollyCart PathForEngine1;
         private CinemachineDollyCart1 Path1ForEngine1;
@@ -18,9 +16,7 @@ namespace Cinemachine
         private CinemachineDollyCart3 Path3ForEngine1;
         private CinemachineDollyCart4 Path4ForEngine1;
 
-        public AudioClip Croc;
-
-        AudioSource TGVCrocAudio;
+        public Text speedLabel; // The label that displays the speed;
 
         // Start is called before the first frame update
         void Start()
@@ -31,47 +27,16 @@ namespace Cinemachine
             Path2ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart2>();
             Path3ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart3>();
             Path4ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart4>();
-
-            TGVCrocAudio = GetComponent<AudioSource>();      
-            
         }
 
-        public void OnTriggerEnter(Collider other)
-        {
-            TGVCrocAudio.clip = Croc;
-            TGVCrocAudio.Play();            
-
-        }
-
+        // Update is called once per frame
         void Update()
         {
-
-            if (PathForEngine1.m_Position >= 62.81f)
-            {
-                Crocodiletimer.SetActive(true);
-            }
-
-            if (Path1ForEngine1.m_Position >= 62.81f)
-            {
-                Crocodiletimer.SetActive(true);
-            }
-
-            if (Path2ForEngine1.m_Position >= 58.93583f)
-            {
-                Crocodiletimer.SetActive(true);
-            }
-
-            if (Path3ForEngine1.m_Position >= 68.39f)
-            {
-                Crocodiletimer.SetActive(true);
-            }
-
-            if (Path4ForEngine1.m_Position >= 69.6f)
-            {
-                Crocodiletimer.SetActive(true);
-            }
-
+            speedLabel.text = "Speed: " + PathForEngine1.m_Speed + " km/h";
+            speedLabel.text = "Speed: " + Path1ForEngine1.m_Speed + " km/h";
+            speedLabel.text = "Speed: " + Path2ForEngine1.m_Speed + " km/h";
+            speedLabel.text = "Speed: " + Path3ForEngine1.m_Speed + " km/h";
+            speedLabel.text = "Speed: " + Path4ForEngine1.m_Speed + " km/h";
         }
-
     }
 }
