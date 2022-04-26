@@ -25,7 +25,7 @@ namespace Cinemachine
         // Start is called before the first frame update
         void Start()
         {
-            TGVEngine1 = GameObject.Find("Engine_1");
+            TGVEngine1 = GameObject.Find("Engine_1 1");
             PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart>();
             Path1ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart1>();
             Path2ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart2>();
@@ -46,22 +46,22 @@ namespace Cinemachine
         void Update()
         {
 
-            if (PathForEngine1.m_Position >= 62.81f)
+            if (PathForEngine1.m_Position >= 59f)
             {
                 Crocodiletimer.SetActive(true);
             }
 
-            if (Path1ForEngine1.m_Position >= 62.81f)
+            if (Path1ForEngine1.m_Position >= 59f)
             {
                 Crocodiletimer.SetActive(true);
             }
 
-            if (Path2ForEngine1.m_Position >= 58.93583f)
+            if (Path2ForEngine1.m_Position >= 59f)
             {
                 Crocodiletimer.SetActive(true);
             }
 
-            if (Path3ForEngine1.m_Position >= 68.39f)
+            if (Path3ForEngine1.m_Position >= 59f)
             {
                 Crocodiletimer.SetActive(true);
             }
