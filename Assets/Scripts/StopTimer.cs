@@ -10,15 +10,15 @@ namespace Cinemachine
     public class StopTimer : MonoBehaviour
     {
         public GameObject TGVtrain;
-        private CinemachineDollyCart cinemachinedollycart;
+        private CinemachineDollyCart0 cinemachinedollycart;
 
         public GameObject CountdownTimer;
 
         // Start is called before the first frame update
         void Start()
         {
-            TGVtrain = GameObject.Find("Engine_1 1");
-            cinemachinedollycart = TGVtrain.GetComponent<CinemachineDollyCart>();            
+            TGVtrain = GameObject.Find("Engine_1_1");
+            cinemachinedollycart = TGVtrain.GetComponent<CinemachineDollyCart0>();            
         }
 
         private void OnTriggerStay(Collider other)

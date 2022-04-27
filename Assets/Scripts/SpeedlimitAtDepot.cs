@@ -15,7 +15,7 @@ namespace Cinemachine
         public GameObject KVBtext;
 
         public GameObject TGVEngine1;
-        private CinemachineDollyCart PathForEngine1;
+        private CinemachineDollyCart0 PathForEngine;
 
         public GameObject drivingpanel;
         private GameScore ScoreBySpeedLimit;
@@ -23,15 +23,15 @@ namespace Cinemachine
         // Start is called before the first frame update
         void Start()
         {
-            TGVEngine1 = GameObject.Find("Engine_1 1");
-            PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart>();
+            TGVEngine1 = GameObject.Find("Engine_1_1");
+            PathForEngine = TGVEngine1.GetComponent<CinemachineDollyCart0>();
             
             ScoreBySpeedLimit = drivingpanel.GetComponent<GameScore>();
         }
     
         private void OnTriggerStay(Collider other)
         {
-            if (PathForEngine1.m_Speed <= 5)
+            if (PathForEngine.m_Speed <= 5)
             {
                 ScoreBySpeedLimit.SetScoreText(plusscore);
             }

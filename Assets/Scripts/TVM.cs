@@ -15,7 +15,7 @@ namespace Cinemachine
         public Text TVMtext;
 
         public GameObject TGVEngine1;
-        private CinemachineDollyCart PathForEngine1;
+        private CinemachineDollyCart0 PathForEngine1;
         private CinemachineDollyCart1 Path1ForEngine1;
 
         public GameObject drivingpanel;
@@ -26,8 +26,8 @@ namespace Cinemachine
         // Start is called before the first frame update
         void Start()
         {
-            TGVEngine1 = GameObject.Find("Engine_1 1");
-            PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart>();
+            TGVEngine1 = GameObject.Find("Engine_1_1");
+            PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart0>();
             Path1ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart1>(); 
 
             ScoreByTVM = drivingpanel.GetComponent<GameScore>();

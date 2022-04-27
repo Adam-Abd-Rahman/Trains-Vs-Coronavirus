@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 namespace Cinemachine
 {
 
-    public class Distancechecker : MonoBehaviour
+    public class Distancechecker0 : MonoBehaviour
     {
 
         // Reference to checkpoint position
@@ -22,7 +22,7 @@ namespace Cinemachine
         private float plusscore = 2528f;
         private float pluscorefor0meters = 2728f;
 
-        CinemachineDollyCart cinemachinedollycart;
+        CinemachineDollyCart0 cinemachinedollycart;
 
         public GameObject drivingpanel;
         private GameScore ScoreByDistance;
@@ -30,7 +30,7 @@ namespace Cinemachine
         // Start is called before the first frame update
         void Start()
         {
-            cinemachinedollycart = GetComponent<CinemachineDollyCart>();
+            cinemachinedollycart = GetComponent<CinemachineDollyCart0>();
         
             ScoreByDistance = drivingpanel.GetComponent<GameScore>();
         }

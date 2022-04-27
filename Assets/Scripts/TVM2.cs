@@ -25,7 +25,7 @@ namespace Cinemachine
         // Start is called before the first frame update
         void Start()
         {
-            TGVEngine1 = GameObject.Find("Engine_1 1");
+            TGVEngine1 = GameObject.Find("Engine_1_1");
             Path4ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart4>();
 
             ScoreByTVM = drivingpanel.GetComponent<GameScore>();

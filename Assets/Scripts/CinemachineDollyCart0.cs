@@ -12,7 +12,7 @@ namespace Cinemachine
     //[ExecuteAlways]
     //[DisallowMultipleComponent]
     //[HelpURL(Documentation.BaseURL + "manual/CinemachineDollyCart.html")]
-    public class CinemachineDollyCart : MonoBehaviour
+    public class CinemachineDollyCart0 : MonoBehaviour
     {
         /// <summary>The path to follow</summary>
         [Tooltip("The path to follow")]
