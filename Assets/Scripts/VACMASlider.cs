@@ -11,20 +11,8 @@ namespace Cinemachine
     {
         public GameObject VACMA;
 
-        public GameObject TGVtrain;
-        private CinemachineDollyCart0 cinemachinedollycart;
-        private CinemachineDollyCart1 cinemachinedollycart1;
-
         public Slider VACMAslider;
         public Text VACMAText;
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            TGVtrain = GameObject.Find("Engine_1_1");
-            cinemachinedollycart = TGVtrain.GetComponent<CinemachineDollyCart0>();
-            cinemachinedollycart1 = TGVtrain.GetComponent<CinemachineDollyCart1>();
-        }
 
         public void OnValueChanged(float value)
         {

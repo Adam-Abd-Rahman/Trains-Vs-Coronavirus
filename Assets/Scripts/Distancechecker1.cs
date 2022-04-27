@@ -19,8 +19,8 @@ namespace Cinemachine
         // Calculated distance value
         private float distance;
 
-        private float plusscore = 3257f;
-        private float pluscorefor0meters = 3457f;
+        private float plusscore = 2528f;
+        private float pluscorefor0meters = 2728f;
 
         CinemachineDollyCart1 cinemachinedollycart1;
 
@@ -48,7 +48,7 @@ namespace Cinemachine
             // distance.ToString("F2") will show 12.23 in this case
             distanceText.text = "Distance: " + distance.ToString("F1") + " meters";
 
-            if (cinemachinedollycart1.m_Position > 74.3f && cinemachinedollycart1.m_Position < 75.1f)
+            if (cinemachinedollycart1.m_Position > 74.182f && cinemachinedollycart1.m_Position < 75.1f)
             {
                 ScoreByDistance.SetScoreText(plusscore);
             }

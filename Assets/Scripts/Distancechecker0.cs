@@ -11,7 +11,7 @@ namespace Cinemachine
         // Reference to checkpoint position
         [SerializeField]
         private Transform checkpoint;
-    
+
         // Reference to UI text that shows the distance value
         [SerializeField]
         private Text distanceText;

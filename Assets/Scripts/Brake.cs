@@ -45,7 +45,7 @@ namespace Cinemachine
                 brakevalue.text = v.ToString("0");
             });
 
-            TGVEngine1 = GameObject.Find("Engine_1 1");
+            TGVEngine1 = GameObject.Find("Engine_1_1");
             PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart0>();
             Path1ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart1>();
             Path2ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart2>();

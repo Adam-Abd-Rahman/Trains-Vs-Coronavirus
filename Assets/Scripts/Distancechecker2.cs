@@ -22,7 +22,7 @@ namespace Cinemachine
         private float plusscore = 3986f;
         private float pluscorefor0meters = 4186f;
 
-        CinemachineDollyCart1 cinemachinedollycart1;
+        CinemachineDollyCart2 cinemachinedollycart2;
 
         public GameObject drivingpanel;
         private GameScore ScoreByDistance;
@@ -30,7 +30,7 @@ namespace Cinemachine
         // Start is called before the first frame update
         void Start()
         {
-            cinemachinedollycart1 = GetComponent<CinemachineDollyCart1>();
+            cinemachinedollycart2 = GetComponent<CinemachineDollyCart2>();
 
             ScoreByDistance = drivingpanel.GetComponent<GameScore>();
         }
@@ -40,7 +40,7 @@ namespace Cinemachine
         {
 
             // Calculate distance value between character and checkpoint
-            distance = (checkpoint.transform.position - transform.position).magnitude;
+            distance = (checkpoint.position - transform.position).magnitude;
 
             // Display distance value via UI text
             // distance.ToString("F1") shows value with 1 digit after period
@@ -48,12 +48,12 @@ namespace Cinemachine
             // distance.ToString("F2") will show 12.23 in this case
             distanceText.text = "Distance: " + distance.ToString("F1") + " meters";
 
-            if (cinemachinedollycart1.m_Position > 74.3f && cinemachinedollycart1.m_Position < 75.1f)
+            if (cinemachinedollycart2.m_Position > 74.3f && cinemachinedollycart2.m_Position < 75.1f)
             {
                 ScoreByDistance.SetScoreText(plusscore);
             }
 
-            if (cinemachinedollycart1.m_Position == 75.2f)
+            if (cinemachinedollycart2.m_Position == 75.2f)
             {
                 ScoreByDistance.SetScoreText(pluscorefor0meters);
             }
