@@ -9,11 +9,11 @@ namespace Cinemachine
     public class intersectioncontroller : MonoBehaviour
     {
         public GameObject TGVEngine1;
-        private CinemachineDollyCart0 PathForEngine1;
-        private CinemachineDollyCart1 Path1ForEngine1;
-        private CinemachineDollyCart2 Path2ForEngine1;
-        private CinemachineDollyCart3 Path3ForEngine1;
-        private CinemachineDollyCart4 Path4ForEngine1;
+        private CinemachineDollyCart0 PathForEngine1; //Get script named CinemachineDollyCart0 from Engine_1_1 for Paris from Depot.
+        private CinemachineDollyCart1 Path1ForEngine1; //Get script named CinemachineDollyCart1 from Engine_1_1 for Strasbourg.
+        private CinemachineDollyCart2 Path2ForEngine1; //Get script named CinemachineDollyCart2 from Engine_1_1 for Bordeaux.
+        private CinemachineDollyCart3 Path3ForEngine1; //Get script named CinemachineDollyCart3 from Engine_1_1 for Paris.
+        private CinemachineDollyCart4 Path4ForEngine1; //Get script named CinemachineDollyCart4 from Engine_1_1 for Brest.
         private Distancechecker0 distancescore; //Distance checker for Paris from Depot.
         private Distancechecker1 distancescore1; //Distance checker for Strasbourg.
         private Distancechecker2 distancescore2; //Distance checker for Bordeaux.
@@ -21,18 +21,18 @@ namespace Cinemachine
         private Distancechecker4 distancescore4; //Distance checker for Brest.
 
         public GameObject TGVEnginefrontbogie1;
-        private CinemachineDollyCart0 PathForEnginefrontbogie1;
-        private CinemachineDollyCart1 Path1ForEnginefrontbogie1;
-        private CinemachineDollyCart2 Path2ForEnginefrontbogie1;
-        private CinemachineDollyCart3 Path3ForEnginefrontbogie1;
-        private CinemachineDollyCart4 Path4ForEnginefrontbogie1;
+        private CinemachineDollyCart0 PathForEnginefrontbogie1; //Get script named CinemachineDollyCart0 from TGVEnginefrontbogie1 for Paris from Depot.
+        private CinemachineDollyCart1 Path1ForEnginefrontbogie1; //Get script named CinemachineDollyCart1 from TGVEnginefrontbogie1 for Strasbourg.
+        private CinemachineDollyCart2 Path2ForEnginefrontbogie1; //Get script named CinemachineDollyCart2 from TGVEnginefrontbogie1 for Bordeaux.
+        private CinemachineDollyCart3 Path3ForEnginefrontbogie1; //Get script named CinemachineDollyCart3 from TGVEnginefrontbogie1 for Paris.
+        private CinemachineDollyCart4 Path4ForEnginefrontbogie1; //Get script named CinemachineDollyCart4 from TGVEnginefrontbogie1 for Brest.
 
         public GameObject TGVEnginerearbogie1;
-        private CinemachineDollyCart0 PathForEnginerearbogie1;
-        private CinemachineDollyCart1 Path1ForEnginerearbogie1;
-        private CinemachineDollyCart2 Path2ForEnginerearbogie1;
-        private CinemachineDollyCart3 Path3ForEnginerearbogie1;
-        private CinemachineDollyCart4 Path4ForEnginerearbogie1;
+        private CinemachineDollyCart0 PathForEnginerearbogie1; //Get script named CinemachineDollyCart0 from TGVEnginerearbogie1 for Paris from Depot.
+        private CinemachineDollyCart1 Path1ForEnginerearbogie1; //Get script named CinemachineDollyCart1 from TGVEnginerearbogie1 for Strasbourg.
+        private CinemachineDollyCart2 Path2ForEnginerearbogie1; //Get script named CinemachineDollyCart2 from TGVEnginerearbogie1 for Bordeaux.
+        private CinemachineDollyCart3 Path3ForEnginerearbogie1; //Get script named CinemachineDollyCart3 from TGVEnginerearbogie1 for Paris.
+        private CinemachineDollyCart4 Path4ForEnginerearbogie1;//Get script named CinemachineDollyCart4 from TGVEnginerearbogie1 for Brest.
 
         public Slider intersectionslider;
         public Text intersectionslidervalue;
@@ -69,9 +69,6 @@ namespace Cinemachine
             Path2ForEnginerearbogie1 = TGVEnginerearbogie1.GetComponent<CinemachineDollyCart2>();
             Path3ForEnginerearbogie1 = TGVEnginerearbogie1.GetComponent<CinemachineDollyCart3>();
             Path4ForEnginerearbogie1 = TGVEnginerearbogie1.GetComponent<CinemachineDollyCart4>();
-
-            //ChangeDestination(0);
-            //intersectionslider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
             
             timerreset = timer.GetComponent<CountdownTimer>();
         }
@@ -135,8 +132,8 @@ namespace Cinemachine
 
                 intersectionslidervalue.text = "To Strasbourg";
 
-                //CountdownTimer.SetActive(true);
-                //timerreset.Timerstarts = 50f;
+                CountdownTimer.SetActive(true);
+                timerreset.Timerstarts = 50f;
 
             }
             else if (intersectionslider.value == 2f)
@@ -167,8 +164,8 @@ namespace Cinemachine
 
                 intersectionslidervalue.text = "To Bordeaux";
 
-                //CountdownTimer.SetActive(true);
-                //timerreset.Timerstarts = 50f;
+                CountdownTimer.SetActive(true);
+                timerreset.Timerstarts = 50f;
 
             }
             else if (intersectionslider.value == 3f)
@@ -199,8 +196,8 @@ namespace Cinemachine
 
                 intersectionslidervalue.text = "To Paris from Bordeaux";
 
-                //CountdownTimer.SetActive(true);
-                //timerreset.Timerstarts = 50f;
+                CountdownTimer.SetActive(true);
+                timerreset.Timerstarts = 50f;
 
             }
             else
@@ -231,33 +228,9 @@ namespace Cinemachine
 
                 intersectionslidervalue.text = "To Brest";
 
-                //CountdownTimer.SetActive(true);
-                //timerreset.Timerstarts = 50f;
+                CountdownTimer.SetActive(true);
+                timerreset.Timerstarts = 50f;
             }
         }
-
-        //public void ValueChangeCheck()
-        //{
-            //if (intersectionslider.value == 0f)
-            //{
-                //ChangeDestination(0);
-            //}
-            //else if (intersectionslider.value == 1f)
-            //{
-                //ChangeDestination(1);
-            //}
-            //else if (intersectionslider.value == 2f)
-            //{
-                //ChangeDestination(2);
-            //}
-            //else if (intersectionslider.value == 3f)
-            //{
-                //ChangeDestination(3);
-            //}
-            //else
-            //{
-                //ChangeDestination(4);
-            //}
-        //}
     }
 }

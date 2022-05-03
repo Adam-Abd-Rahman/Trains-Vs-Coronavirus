@@ -75,8 +75,6 @@ namespace Cinemachine
         void Update()
         {
             brakevalue.text = brake.value + " Bar";
-
-            //Debug.Log(cinemachinedollycart.m_Speed);
         }
 
         public void OnValueChanged(float value)

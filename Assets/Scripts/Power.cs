@@ -31,15 +31,9 @@ namespace Cinemachine
         private CinemachineDollyCart2 Path2ForEnginerearbogie1;
         private CinemachineDollyCart3 Path3ForEnginerearbogie1;
         private CinemachineDollyCart4 Path4ForEnginerearbogie1;
-        
-        public GameObject Brake;
-        public GameObject EmergencyBrake;
+
         public GameObject Doorbutton;
         //public GameObject Doorbuttonvisible;
-
-        public Slider Drivingmode;
-
-        public Slider Speedselector;
 
         public AudioClip TGVmoving;
 
@@ -81,15 +75,8 @@ namespace Cinemachine
 
         public void OnValueChanged(float value)
         {
-            //SliderValue = value;
             
-            if (Powerslider.value == 0f)
-            {
-
-                Brake.SetActive(true);
-                EmergencyBrake.SetActive(true);
-            }
-            else if (Powerslider.value >= 1f && Powerslider.value < 10f)
+            if (Powerslider.value >= 1f && Powerslider.value < 10f)
             {
 
                 PathForEngine1.m_Speed = 4f;
@@ -109,9 +96,6 @@ namespace Cinemachine
                 Path2ForEnginerearbogie1.m_Speed = 4f;
                 Path3ForEnginerearbogie1.m_Speed = 4f;
                 Path4ForEnginerearbogie1.m_Speed = 4f;
-
-                Brake.SetActive(true);
-                EmergencyBrake.SetActive(true);
 
                 PlayTGVAudioMoving(); 
             }
@@ -135,9 +119,6 @@ namespace Cinemachine
                 Path3ForEnginerearbogie1.m_Speed = 10f;
                 Path4ForEnginerearbogie1.m_Speed = 10f;
 
-                Brake.SetActive(true);
-                EmergencyBrake.SetActive(true);
-
                 PlayTGVAudioMoving();
             }
             else if (Powerslider.value >= 20f && Powerslider.value < 40f)
@@ -160,10 +141,7 @@ namespace Cinemachine
                 Path2ForEnginerearbogie1.m_Speed = 20f;
                 Path3ForEnginerearbogie1.m_Speed = 20f;
                 Path4ForEnginerearbogie1.m_Speed = 20f;
-
-                Brake.SetActive(true);
-                EmergencyBrake.SetActive(true);
-
+                
                 PlayTGVAudioMoving();
             }
             else if (Powerslider.value >= 40f && Powerslider.value < 60f)
@@ -186,9 +164,6 @@ namespace Cinemachine
                 Path3ForEnginerearbogie1.m_Speed = 50f;
                 Path4ForEnginerearbogie1.m_Speed = 50f;
 
-                Brake.SetActive(true);
-                EmergencyBrake.SetActive(true);
-
                 PlayTGVAudioMoving();
             }
             else
@@ -210,9 +185,6 @@ namespace Cinemachine
                 Path2ForEnginerearbogie1.m_Speed = 60f;
                 Path3ForEnginerearbogie1.m_Speed = 60f;
                 Path4ForEnginerearbogie1.m_Speed = 60f;
-
-                Brake.SetActive(true);
-                EmergencyBrake.SetActive(true);
 
                 PlayTGVAudioMoving();
             }

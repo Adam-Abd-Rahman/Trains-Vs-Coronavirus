@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Hornlever : MonoBehaviour
 {
     public Slider hornslider;
+    public Text hornslidertext;
 
     bool trainHornTriggered;
 
@@ -18,6 +19,8 @@ public class Hornlever : MonoBehaviour
                 Horn.tgvtrainhorn.PlayTGVAudioHorn();
                 trainHornTriggered = true;
             }
+
+            hornslidertext.text = "On";
         }
         else
         {
@@ -26,6 +29,8 @@ public class Hornlever : MonoBehaviour
                 Horn.tgvtrainhorn.StopTGVAudioHorn();
                 trainHornTriggered = false;
             }
+
+            hornslidertext.text = "Off";
         }
     }
 }

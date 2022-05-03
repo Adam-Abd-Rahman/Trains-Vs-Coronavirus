@@ -9,13 +9,12 @@ namespace Cinemachine
 
     public class TVM : MonoBehaviour
     {
-        private float increasescore = 1559f;
+        private float increasescore = 1539f;
         private float decreasescore = 0f;
 
         public Text TVMtext;
 
         public GameObject TGVEngine1;
-        private CinemachineDollyCart0 PathForEngine1;
         private CinemachineDollyCart1 Path1ForEngine1;
 
         public GameObject drivingpanel;
@@ -27,8 +26,7 @@ namespace Cinemachine
         void Start()
         {
             TGVEngine1 = GameObject.Find("Engine_1_1");
-            PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart0>();
-            Path1ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart1>(); 
+            Path1ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart1>();
 
             ScoreByTVM = drivingpanel.GetComponent<GameScore>();
 
@@ -38,15 +36,17 @@ namespace Cinemachine
         private void OnTriggerStay(Collider other)
         {
 
-            if (PathForEngine1.m_Speed <= 5)
+            if (Path1ForEngine1.m_Speed <= 5)
             {
                 ScoreByTVM.SetScoreText(increasescore); 
                 TVMtext.text = "10kmph";
+                Debug.Log("1539 (TVM to Strasbourg)");
             }
-            else if (PathForEngine1.m_Speed > 5 && PathForEngine1.m_Speed < 10)
+            else if (Path1ForEngine1.m_Speed > 5 && Path1ForEngine1.m_Speed < 10)
             {
                 ScoreByTVM.SetScoreText(increasescore);
                 TVMtext.text = "Stay below 10 kmph";
+                Debug.Log("1539 (TVM to Strasbourg)");
             }
             else
             {
@@ -54,23 +54,6 @@ namespace Cinemachine
                 brakeslider.value = 0;
             }
 
-            if (Path1ForEngine1.m_Speed <= 5)
-            {
-                //ScoreByTVM.SetScoreText(increasescore);
-                //TVMtext.text = "10kmph";
-                Debug.Log("10kmph");
-            }
-            else if (Path1ForEngine1.m_Speed > 5 && Path1ForEngine1.m_Speed < 10)
-            {
-                //ScoreByTVM.SetScoreText(increasescore);
-                //TVMtext.text = "Stay below 10 kmph";
-                Debug.Log("Stay below 10 kmph");
-            }
-            else
-            {
-                ScoreByTVM.SetScoreText(decreasescore);
-                brakeslider.value = 0;
-            }
         }
 
         private void OnTriggerExit(Collider other)
@@ -79,6 +62,5 @@ namespace Cinemachine
         }
 
     }
-
-        
+            
 }
