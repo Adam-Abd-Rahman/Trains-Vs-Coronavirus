@@ -8,6 +8,13 @@ namespace Cinemachine
 {
     public class intersectioncontroller : MonoBehaviour
     {
+        public GameObject TGVdrivingcab;
+        private CinemachineDollyCart0 PathFordrivingcab;
+        private CinemachineDollyCart1 Path1Fordrivingcab;
+        private CinemachineDollyCart2 Path2Fordrivingcab;
+        private CinemachineDollyCart3 Path3Fordrivingcab;
+        private CinemachineDollyCart4 Path4Fordrivingcab;
+
         public GameObject TGVEngine1;
         private CinemachineDollyCart0 PathForEngine1; //Get script named CinemachineDollyCart0 from Engine_1_1 for Paris from Depot.
         private CinemachineDollyCart1 Path1ForEngine1; //Get script named CinemachineDollyCart1 from Engine_1_1 for Strasbourg.
@@ -41,9 +48,19 @@ namespace Cinemachine
         CountdownTimer timerreset;
         [SerializeField] GameObject timer;
 
+        public GameObject Canvastobrest;
+        public GameObject Canvastobrest1;
+
         // Start is called before the first frame update
         void Start()
         {
+            TGVdrivingcab = GameObject.Find("TGV");
+            PathFordrivingcab = TGVdrivingcab.GetComponent<CinemachineDollyCart0>();
+            Path1Fordrivingcab = TGVdrivingcab.GetComponent<CinemachineDollyCart1>();
+            Path2Fordrivingcab = TGVdrivingcab.GetComponent<CinemachineDollyCart2>();
+            Path3Fordrivingcab = TGVdrivingcab.GetComponent<CinemachineDollyCart3>();
+            Path4Fordrivingcab = TGVdrivingcab.GetComponent<CinemachineDollyCart4>();
+
             TGVEngine1 = GameObject.Find("Engine_1_1");
             PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart0>();
             Path1ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart1>();
@@ -77,6 +94,12 @@ namespace Cinemachine
         {
             if (intersectionslider.value == 0f)
             {
+                PathFordrivingcab.enabled = true;
+                Path1Fordrivingcab.enabled = false;
+                Path2Fordrivingcab.enabled = false;
+                Path3Fordrivingcab.enabled = false;
+                Path4Fordrivingcab.enabled = false;
+
                 PathForEngine1.enabled = true;//activate path from depot to Paris for first power car.
                 Path1ForEngine1.enabled = false;//deactivate path from Paris to Strasbourg for first power car.
                 Path2ForEngine1.enabled = false;//deactivate path from Strasbourg to Bordeaux for first power car.
@@ -106,6 +129,12 @@ namespace Cinemachine
             }
             else if (intersectionslider.value == 1f)
             {
+                PathFordrivingcab.enabled = false;
+                Path1Fordrivingcab.enabled = true;
+                Path2Fordrivingcab.enabled = false;
+                Path3Fordrivingcab.enabled = false;
+                Path4Fordrivingcab.enabled = false;
+
                 PathForEngine1.enabled = false;//deactivate path from depot to Paris for first power car.
                 Path1ForEngine1.enabled = true;//activate path from Paris to Strasbourg for first power car.
                 Path2ForEngine1.enabled = false;//deactivate path from Strasbourg to Bordeaux for first power car.
@@ -138,6 +167,12 @@ namespace Cinemachine
             }
             else if (intersectionslider.value == 2f)
             {
+                PathFordrivingcab.enabled = false;
+                Path1Fordrivingcab.enabled = false;
+                Path2Fordrivingcab.enabled = true;
+                Path3Fordrivingcab.enabled = false;
+                Path4Fordrivingcab.enabled = false;
+
                 PathForEngine1.enabled = false;//deactivate path from depot to Paris for first power car.
                 Path1ForEngine1.enabled = false;//deactivate path from Paris to Strasbourg for first power car.
                 Path2ForEngine1.enabled = true;//activate path from Strasbourg to Bordeaux for first power car.
@@ -170,6 +205,12 @@ namespace Cinemachine
             }
             else if (intersectionslider.value == 3f)
             {
+                PathFordrivingcab.enabled = false;
+                Path1Fordrivingcab.enabled = false;
+                Path2Fordrivingcab.enabled = false;
+                Path3Fordrivingcab.enabled = true;
+                Path4Fordrivingcab.enabled = false;
+
                 PathForEngine1.enabled = false;//deactivate path from depot to Paris for first power car.
                 Path1ForEngine1.enabled = false;//deactivate path from Paris to Strasbourg for first power car.
                 Path2ForEngine1.enabled = false;//deactivate path from Strasbourg to Bordeaux for first power car.
@@ -199,9 +240,17 @@ namespace Cinemachine
                 CountdownTimer.SetActive(true);
                 timerreset.Timerstarts = 50f;
 
+                Canvastobrest.SetActive(true);
+                Canvastobrest1.SetActive(true);
             }
             else
             {
+                PathFordrivingcab.enabled = false;
+                Path1Fordrivingcab.enabled = false;
+                Path2Fordrivingcab.enabled = false;
+                Path3Fordrivingcab.enabled = false;
+                Path4Fordrivingcab.enabled = true;
+
                 PathForEngine1.enabled = false;//deactivate path from depot to Paris for first power car.
                 Path1ForEngine1.enabled = false;//deactivate path from Paris to Strasbourg for first power car.
                 Path2ForEngine1.enabled = false;//deactivate path from Strasbourg to Bordeaux for first power car.

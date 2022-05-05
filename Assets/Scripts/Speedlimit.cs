@@ -35,12 +35,12 @@ namespace Cinemachine
         {
             if (PathForEngine1.m_Speed <= 5)
             {
-                ScoreBySpeedLimit.SetScoreText(plusscore);
+                //ScoreBySpeedLimit.SetScoreText(plusscore);
                 Debug.Log("30 (at depot)");
             }
             else
             {
-                ScoreBySpeedLimit.SetScoreText(minusscore);
+                //ScoreBySpeedLimit.SetScoreText(minusscore);
                 Debug.Log("0 (at depot)");
             }
 

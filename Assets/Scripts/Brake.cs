@@ -12,6 +12,13 @@ namespace Cinemachine
         public Text brakevalue;
         public Button EmergencyBrake;
 
+        public GameObject TGVdrivingcab;
+        private CinemachineDollyCart0 PathFordrivingcab;
+        private CinemachineDollyCart1 Path1Fordrivingcab;
+        private CinemachineDollyCart2 Path2Fordrivingcab;
+        private CinemachineDollyCart3 Path3Fordrivingcab;
+        private CinemachineDollyCart4 Path4Fordrivingcab;
+
         public GameObject TGVEngine1;
         private CinemachineDollyCart0 PathForEngine1;
         private CinemachineDollyCart1 Path1ForEngine1;
@@ -44,6 +51,13 @@ namespace Cinemachine
             {
                 brakevalue.text = v.ToString("0");
             });
+
+            TGVdrivingcab = GameObject.Find("TGV");
+            PathFordrivingcab = TGVdrivingcab.GetComponent<CinemachineDollyCart0>();
+            Path1Fordrivingcab = TGVdrivingcab.GetComponent<CinemachineDollyCart1>();
+            Path2Fordrivingcab = TGVdrivingcab.GetComponent<CinemachineDollyCart2>();
+            Path3Fordrivingcab = TGVdrivingcab.GetComponent<CinemachineDollyCart3>();
+            Path4Fordrivingcab = TGVdrivingcab.GetComponent<CinemachineDollyCart4>();
 
             TGVEngine1 = GameObject.Find("Engine_1_1");
             PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart0>();
@@ -79,30 +93,42 @@ namespace Cinemachine
 
         public void OnValueChanged(float value)
         {
-            if (brake.value == 2)
+            if (brake.value == 2f)
             {
-                PathForEngine1.m_Speed = 5f;
-                Path1ForEngine1.m_Speed = 5f;
-                Path2ForEngine1.m_Speed = 5f;
-                Path3ForEngine1.m_Speed = 5f;
-                Path4ForEngine1.m_Speed = 5f;
+                PathFordrivingcab.m_Speed = 2f;
+                Path1Fordrivingcab.m_Speed = 2f;
+                Path2Fordrivingcab.m_Speed = 2f;
+                Path3Fordrivingcab.m_Speed = 2f;
+                Path4Fordrivingcab.m_Speed = 2f;
 
-                PathForEnginefrontbogie1.m_Speed = 5f;
-                Path1ForEnginefrontbogie1.m_Speed = 5f;
-                Path2ForEnginefrontbogie1.m_Speed = 5f;
-                Path3ForEnginefrontbogie1.m_Speed = 5f;
-                Path4ForEnginefrontbogie1.m_Speed = 5f;
+                PathForEngine1.m_Speed = 2f;
+                Path1ForEngine1.m_Speed = 2f;
+                Path2ForEngine1.m_Speed = 2f;
+                Path3ForEngine1.m_Speed = 2f;
+                Path4ForEngine1.m_Speed = 2f;
 
-                PathForEnginerearbogie1.m_Speed = 5f;
-                Path1ForEnginerearbogie1.m_Speed = 5f;
-                Path2ForEnginerearbogie1.m_Speed = 5f;
-                Path3ForEnginerearbogie1.m_Speed = 5f;
-                Path4ForEnginerearbogie1.m_Speed = 5f;
+                PathForEnginefrontbogie1.m_Speed = 2f;
+                Path1ForEnginefrontbogie1.m_Speed = 2f;
+                Path2ForEnginefrontbogie1.m_Speed = 2f;
+                Path3ForEnginefrontbogie1.m_Speed = 2f;
+                Path4ForEnginefrontbogie1.m_Speed = 2f;
+
+                PathForEnginerearbogie1.m_Speed = 2f;
+                Path1ForEnginerearbogie1.m_Speed = 2f;
+                Path2ForEnginerearbogie1.m_Speed = 2f;
+                Path3ForEnginerearbogie1.m_Speed = 2f;
+                Path4ForEnginerearbogie1.m_Speed = 2f;
 
                 PlayTGVAudioBrake();
             }
-            else if (brake.value == 1)
+            else if (brake.value == 1f)
             {
+                PathFordrivingcab.m_Speed = 1f;
+                Path1Fordrivingcab.m_Speed = 1f;
+                Path2Fordrivingcab.m_Speed = 1f;
+                Path3Fordrivingcab.m_Speed = 1f;
+                Path4Fordrivingcab.m_Speed = 1f;
+
                 PathForEngine1.m_Speed = 1f;
                 Path1ForEngine1.m_Speed = 1f;
                 Path2ForEngine1.m_Speed = 1f;
@@ -125,6 +151,12 @@ namespace Cinemachine
             }
             else
             {
+                PathFordrivingcab.m_Speed = 0f;
+                Path1Fordrivingcab.m_Speed = 0f;
+                Path2Fordrivingcab.m_Speed = 0f;
+                Path3Fordrivingcab.m_Speed = 0f;
+                Path4Fordrivingcab.m_Speed = 0f;
+
                 PathForEngine1.m_Speed = 0f;
                 Path1ForEngine1.m_Speed = 0f;
                 Path2ForEngine1.m_Speed = 0f;
