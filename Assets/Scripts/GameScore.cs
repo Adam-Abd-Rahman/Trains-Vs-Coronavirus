@@ -9,13 +9,6 @@ namespace Cinemachine
 {
     public class GameScore : MonoBehaviour
     {
-        public GameObject TGVdrivingcab;
-        private CinemachineDollyCart0 PathFordrivingcab;
-        private CinemachineDollyCart1 Path1Fordrivingcab;
-        private CinemachineDollyCart2 Path2Fordrivingcab;
-        private CinemachineDollyCart3 Path3Fordrivingcab;
-        private CinemachineDollyCart4 Path4Fordrivingcab;
-
         public GameObject TGVEngine1;
         private CinemachineDollyCart0 PathForEngine1;
         private CinemachineDollyCart1 Path1ForEngine1;
@@ -49,14 +42,7 @@ namespace Cinemachine
         // Start is called before the first frame update
         void Start()
         {
-            TGVdrivingcab = GameObject.Find("TGV");
-            PathFordrivingcab = TGVdrivingcab.GetComponent<CinemachineDollyCart0>();
-            Path1Fordrivingcab = TGVdrivingcab.GetComponent<CinemachineDollyCart1>();
-            Path2Fordrivingcab = TGVdrivingcab.GetComponent<CinemachineDollyCart2>();
-            Path3Fordrivingcab = TGVdrivingcab.GetComponent<CinemachineDollyCart3>();
-            Path4Fordrivingcab = TGVdrivingcab.GetComponent<CinemachineDollyCart4>();
-
-            TGVEngine1 = GameObject.Find("Engine_1_1");
+            TGVEngine1 = GameObject.Find("TGV");
             PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart0>();
             Path1ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart1>();
             Path2ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart2>();
@@ -90,12 +76,6 @@ namespace Cinemachine
             if (Score == 0)
             {
                 GameOver.text = "Game Over!!!";
-
-                PathFordrivingcab.m_Speed = 0f;
-                Path1Fordrivingcab.m_Speed = 0f;
-                Path2Fordrivingcab.m_Speed = 0f;
-                Path3Fordrivingcab.m_Speed = 0f;
-                Path4Fordrivingcab.m_Speed = 0f;
 
                 PathForEngine1.m_Speed = 0f;
                 Path1ForEngine1.m_Speed = 0f;
