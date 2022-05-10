@@ -18,20 +18,20 @@ namespace Cinemachine
         // Start is called before the first frame update
         void Start()
         {
-            TGVtrain = GameObject.Find("Engine_1_1");
+            TGVtrain = GameObject.Find("Engine_1_front_bogie_and_wheel");
             cinemachinedollycart = TGVtrain.GetComponent<CinemachineDollyCart0>();
             cinemachinedollycart3 = TGVtrain.GetComponent<CinemachineDollyCart3>();
         }
 
         private void OnTriggerStay(Collider other)
         {
-
-            if (cinemachinedollycart.m_Speed == 0)
+           
+            if (cinemachinedollycart.m_Speed == 0f)
             {
                 CountdownTimer.SetActive(false);
             }
 
-            if (cinemachinedollycart3.m_Speed == 0)
+            if (cinemachinedollycart3.m_Speed == 0f)
             {
                 CountdownTimer.SetActive(false);
             }

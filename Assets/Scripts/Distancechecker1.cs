@@ -19,22 +19,6 @@ namespace Cinemachine
         // Calculated distance value
         private float distance;
 
-        private float plusscore = 2568f;
-        private float pluscorefor0meters = 2768f;
-
-        CinemachineDollyCart1 cinemachinedollycart1;
-
-        public GameObject drivingpanel;
-        private GameScore ScoreByDistance;
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            cinemachinedollycart1 = GetComponent<CinemachineDollyCart1>();
-
-            ScoreByDistance = drivingpanel.GetComponent<GameScore>();
-        }
-
         // Update is called once per frame
         private void Update()
         {
@@ -47,16 +31,6 @@ namespace Cinemachine
             // so 12.234 will be shown as 12.2 for example
             // distance.ToString("F2") will show 12.23 in this case
             distanceText.text = "Distance: " + distance.ToString("F1") + " meters";
-
-            if (cinemachinedollycart1.m_Position > 74.182f && cinemachinedollycart1.m_Position < 75.1f)
-            {
-                ScoreByDistance.SetScoreText(plusscore);
-            }
-
-            if (cinemachinedollycart1.m_Position == 75.2f)
-            {
-                ScoreByDistance.SetScoreText(pluscorefor0meters);
-            }
         }
 
     }

@@ -37,14 +37,13 @@ namespace Cinemachine
         public Slider intersectionslider;
         public Text intersectionslidervalue;
 
-        public GameObject CountdownTimer;
-        CountdownTimer timerreset;
-        [SerializeField] GameObject timer;
+        public GameObject Canvastobrest;
+        public GameObject CanvastoParis;
 
         // Start is called before the first frame update
         void Start()
         {
-            TGVEngine1 = GameObject.Find("Engine_1_1");
+            TGVEngine1 = GameObject.Find("TGV");
             PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart0>();
             Path1ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart1>();
             Path2ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart2>();
@@ -69,8 +68,6 @@ namespace Cinemachine
             Path2ForEnginerearbogie1 = TGVEnginerearbogie1.GetComponent<CinemachineDollyCart2>();
             Path3ForEnginerearbogie1 = TGVEnginerearbogie1.GetComponent<CinemachineDollyCart3>();
             Path4ForEnginerearbogie1 = TGVEnginerearbogie1.GetComponent<CinemachineDollyCart4>();
-            
-            timerreset = timer.GetComponent<CountdownTimer>();
         }
 
         public void ChangeDestination()
@@ -103,6 +100,9 @@ namespace Cinemachine
 
                 intersectionslidervalue.text = "To Paris";
 
+                Canvastobrest.SetActive(false);
+                CanvastoParis.SetActive(true);
+
             }
             else if (intersectionslider.value == 1f)
             {
@@ -132,9 +132,8 @@ namespace Cinemachine
 
                 intersectionslidervalue.text = "To Strasbourg";
 
-                CountdownTimer.SetActive(true);
-                timerreset.Timerstarts = 50f;
-
+                Canvastobrest.SetActive(false);
+                CanvastoParis.SetActive(true);
             }
             else if (intersectionslider.value == 2f)
             {
@@ -164,9 +163,8 @@ namespace Cinemachine
 
                 intersectionslidervalue.text = "To Bordeaux";
 
-                CountdownTimer.SetActive(true);
-                timerreset.Timerstarts = 50f;
-
+                Canvastobrest.SetActive(false);
+                CanvastoParis.SetActive(true);
             }
             else if (intersectionslider.value == 3f)
             {
@@ -196,9 +194,8 @@ namespace Cinemachine
 
                 intersectionslidervalue.text = "To Paris from Bordeaux";
 
-                CountdownTimer.SetActive(true);
-                timerreset.Timerstarts = 50f;
-
+                Canvastobrest.SetActive(true);
+                CanvastoParis.SetActive(false);                
             }
             else
             {
@@ -228,8 +225,8 @@ namespace Cinemachine
 
                 intersectionslidervalue.text = "To Brest";
 
-                CountdownTimer.SetActive(true);
-                timerreset.Timerstarts = 50f;
+                Canvastobrest.SetActive(false);
+                CanvastoParis.SetActive(true);
             }
         }
     }

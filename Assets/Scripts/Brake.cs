@@ -10,7 +10,6 @@ namespace Cinemachine
     {
         public Slider brake;
         public Text brakevalue;
-        public Button EmergencyBrake;
 
         public GameObject TGVEngine1;
         private CinemachineDollyCart0 PathForEngine1;
@@ -33,10 +32,6 @@ namespace Cinemachine
         private CinemachineDollyCart3 Path3ForEnginerearbogie1;
         private CinemachineDollyCart4 Path4ForEnginerearbogie1;
 
-        public AudioClip TGVbrake;
-
-        AudioSource TGVbrakeAudio;
-
         // Start is called before the first frame update
         void Start()
         {
@@ -45,7 +40,7 @@ namespace Cinemachine
                 brakevalue.text = v.ToString("0");
             });
 
-            TGVEngine1 = GameObject.Find("Engine_1_1");
+            TGVEngine1 = GameObject.Find("TGV");
             PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart0>();
             Path1ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart1>();
             Path2ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart2>();
@@ -65,10 +60,6 @@ namespace Cinemachine
             Path2ForEnginerearbogie1 = TGVEnginerearbogie1.GetComponent<CinemachineDollyCart2>();
             Path3ForEnginerearbogie1 = TGVEnginerearbogie1.GetComponent<CinemachineDollyCart3>();
             Path4ForEnginerearbogie1 = TGVEnginerearbogie1.GetComponent<CinemachineDollyCart4>();
-
-            EmergencyBrake.onClick.AddListener(ButtonClicked);
-    
-            TGVbrakeAudio = GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
@@ -79,29 +70,27 @@ namespace Cinemachine
 
         public void OnValueChanged(float value)
         {
-            if (brake.value == 2)
+            if (brake.value == 2f)
             {
-                PathForEngine1.m_Speed = 5f;
-                Path1ForEngine1.m_Speed = 5f;
-                Path2ForEngine1.m_Speed = 5f;
-                Path3ForEngine1.m_Speed = 5f;
-                Path4ForEngine1.m_Speed = 5f;
+                PathForEngine1.m_Speed = 2f;
+                Path1ForEngine1.m_Speed = 2f;
+                Path2ForEngine1.m_Speed = 2f;
+                Path3ForEngine1.m_Speed = 2f;
+                Path4ForEngine1.m_Speed = 2f;
 
-                PathForEnginefrontbogie1.m_Speed = 5f;
-                Path1ForEnginefrontbogie1.m_Speed = 5f;
-                Path2ForEnginefrontbogie1.m_Speed = 5f;
-                Path3ForEnginefrontbogie1.m_Speed = 5f;
-                Path4ForEnginefrontbogie1.m_Speed = 5f;
+                PathForEnginefrontbogie1.m_Speed = 2f;
+                Path1ForEnginefrontbogie1.m_Speed = 2f;
+                Path2ForEnginefrontbogie1.m_Speed = 2f;
+                Path3ForEnginefrontbogie1.m_Speed = 2f;
+                Path4ForEnginefrontbogie1.m_Speed = 2f;
 
-                PathForEnginerearbogie1.m_Speed = 5f;
-                Path1ForEnginerearbogie1.m_Speed = 5f;
-                Path2ForEnginerearbogie1.m_Speed = 5f;
-                Path3ForEnginerearbogie1.m_Speed = 5f;
-                Path4ForEnginerearbogie1.m_Speed = 5f;
-
-                PlayTGVAudioBrake();
+                PathForEnginerearbogie1.m_Speed = 2f;
+                Path1ForEnginerearbogie1.m_Speed = 2f;
+                Path2ForEnginerearbogie1.m_Speed = 2f;
+                Path3ForEnginerearbogie1.m_Speed = 2f;
+                Path4ForEnginerearbogie1.m_Speed = 2f;
             }
-            else if (brake.value == 1)
+            else if (brake.value == 1f)
             {
                 PathForEngine1.m_Speed = 1f;
                 Path1ForEngine1.m_Speed = 1f;
@@ -120,8 +109,6 @@ namespace Cinemachine
                 Path2ForEnginerearbogie1.m_Speed = 1f;
                 Path3ForEnginerearbogie1.m_Speed = 1f;
                 Path4ForEnginerearbogie1.m_Speed = 1f;
-
-                PlayTGVAudioBrake();
             }
             else
             {
@@ -142,33 +129,7 @@ namespace Cinemachine
                 Path2ForEnginerearbogie1.m_Speed = 0f;
                 Path3ForEnginerearbogie1.m_Speed = 0f;
                 Path4ForEnginerearbogie1.m_Speed = 0f;
-
-                StopTGVAudioBrake();
             }
-        }
-
-        public void ButtonClicked()
-        {
-            if (brake.value == 3)
-            {
-                brake.value = 0;
-            }
-            else
-            {
-                brake.value = 3;
-            }
-        }
-
-        public void PlayTGVAudioBrake()
-        {
-            TGVbrakeAudio.clip = TGVbrake;
-            TGVbrakeAudio.Play();
-        }
-
-        public void StopTGVAudioBrake()
-        {
-            TGVbrakeAudio.clip = TGVbrake;
-            TGVbrakeAudio.Stop();
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Cinemachine
         // Start is called before the first frame update
         void Start()
         {
-            TGVEngine1 = GameObject.Find("Engine_1_1");
+            TGVEngine1 = GameObject.Find("TGV");
             PathForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart0>();
             Path1ForEngine1 = TGVEngine1.GetComponent<CinemachineDollyCart1>();
 
@@ -35,12 +35,12 @@ namespace Cinemachine
         {
             if (PathForEngine1.m_Speed <= 5)
             {
-                ScoreBySpeedLimit.SetScoreText(plusscore);
+                //ScoreBySpeedLimit.SetScoreText(plusscore);
                 Debug.Log("30 (at depot)");
             }
             else
             {
-                ScoreBySpeedLimit.SetScoreText(minusscore);
+                //ScoreBySpeedLimit.SetScoreText(minusscore);
                 Debug.Log("0 (at depot)");
             }
 
