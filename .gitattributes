@@ -48,3 +48,7 @@
 #Builds
 *.apk
 TrainsvsCoronavirus.apk filter=lfs diff=lfs merge=lfs -text
+TrainsvsCoronavirus[[:space:]](updated).apk filter=lfs diff=lfs merge=lfs -text
+TrainsvsCoronavirus(updated).apk filter=lfs diff=lfs merge=lfs -text
+TrainsvsCoronvavirusupdated.apk filter=lfs diff=lfs merge=lfs -text
+TrainsvsCoronavirusUpdated.apk filter=lfs diff=lfs merge=lfs -text
